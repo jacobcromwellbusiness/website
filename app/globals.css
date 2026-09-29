@@ -1,0 +1,112 @@
+:root {
+  --ink: #05070b;
+  --ink-raised: #0b1018;
+  --navy: #102a56;
+  --navy-deep: #0a1c3a;
+  --blue: #2f6bff;
+  --blue-soft: #8eb5ff;
+  --paper: #f1f4f8;
+  --white: #ffffff;
+  --muted-dark: #9ca8ba;
+  --muted-light: #526174;
+  --line-dark: rgba(255, 255, 255, 0.14);
+  --line-light: rgba(5, 7, 11, 0.14);
+
+  --step--1: clamp(0.78rem, 0.74rem + 0.15vw, 0.88rem);
+  --step-0: clamp(1rem, 0.94rem + 0.25vw, 1.15rem);
+  --step-1: clamp(1.35rem, 1.05rem + 1vw, 2rem);
+  --step-2: clamp(2rem, 1.2rem + 3vw, 4.5rem);
+  --step-3: clamp(3.25rem, 1.2rem + 7vw, 8.5rem);
+  --step-4: clamp(4.25rem, 1rem + 10vw, 12rem);
+
+  --max-width: 1440px;
+  --pad-x: clamp(20px, 4vw, 72px);
+  --pad-y: clamp(72px, 11vw, 180px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--ink);
+  color: var(--white);
+  font-family: var(--font-body), Arial, sans-serif;
+  line-height: 1.5;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display), Arial, sans-serif;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 0.9;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  max-width: 60ch;
+  color: var(--muted-dark);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.pill {
+  border-radius: 999px;
+  border: 1px solid var(--line-dark);
+  padding: 8px 16px;
+  font-size: var(--step--1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s, color 0.2s;
+  cursor: pointer;
+}
+
+.pill:hover, .pill:focus-visible {
+  border-color: var(--blue);
+  color: var(--blue-soft);
+  outline: none;
+}
+
+.pill-active {
+  background-color: var(--blue);
+  color: var(--white);
+  border-color: var(--blue);
+}
+
+.section {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--pad-y) var(--pad-x);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

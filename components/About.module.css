@@ -1,0 +1,75 @@
+.section {
+  padding: var(--pad-y) 0;
+  background-color: var(--paper);
+  color: var(--ink);
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--pad-x);
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+
+.leftColumn {
+  width: 100%;
+}
+
+.index {
+  font-family: var(--font-display);
+  font-size: var(--step--1);
+  color: var(--muted-light);
+  margin-bottom: 24px;
+  letter-spacing: 0.05em;
+}
+
+.heading {
+  font-size: var(--step-4);
+  line-height: 0.85;
+}
+
+.rightColumn {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.bio {
+  font-size: var(--step-1);
+  color: var(--ink);
+  max-width: 35ch;
+  line-height: 1.4;
+}
+
+.subheading {
+  font-family: var(--font-display);
+  font-size: var(--step--1);
+  color: var(--muted-light);
+  margin-bottom: 16px;
+  letter-spacing: 0.05em;
+}
+
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+@media (min-width: 1024px) {
+  .container {
+    flex-direction: row;
+    gap: 0;
+  }
+
+  .leftColumn {
+    width: 50%;
+  }
+
+  .rightColumn {
+    width: 50%;
+    padding-top: 48px; /* align with heading baseline */
+  }
+}

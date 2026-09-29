@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description"
+        content="Digital Infrastructure for Plumbers. Stop missing emergency calls and get paid faster.">
+    <title>Plumber Systems | Cromwell Consulting</title>
+
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🪠</text></svg>">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* --- BRAND VARIABLES --- */
+        :root {
+            --green-deep: #0f291e;
+            --green-primary: #1B4332;
+            --green-mid: #2d6a4f;
+            --green-light: #f0fdf4;
+            --gold: #C5A028;
+            --gold-hover: #9E801F;
+            --gold-light: #fefce8;
+            --white: #ffffff;
+            --off-white: #f9fafb;
+            --text-dark: #1a2e24;
+            --text-mid: #4a5568;
+            --text-light: #718096;
+            --border: #e2e8f0;
+            --border-green: #c6f6d5;
+            --danger: #e53e3e;
+            --success: #10b981;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', system-ui, sans-serif;
+            background: var(--off-white);
+            color: var(--text-dark);
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* --- TYPOGRAPHY --- */
+        .serif {
+            font-family: 'DM Serif Display', Georgia, serif;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'DM Serif Display', Georgia, serif;
+            line-height: 1.15;
+        }
+
+        h1 {
+            font-size: clamp(2.2rem, 5vw, 3.4rem);
+            font-weight: 400;
+            letter-spacing: -0.01em;
+        }
+
+        h2 {
+            font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+            font-weight: 400;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 400;
+        }
+
+        p {
+            font-size: 1.05rem;
+            color: var(--text-mid);
+        }
+
+        .label {
+            display: inline-block;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--gold);
+            background: var(--gold-light);
+            border: 1px solid rgba(197, 160, 40, 0.25);
+            padding: 5px 12px;
+            border-radius: 20px;
+            margin-bottom: 18px;
+        }
+
+        .text-gold {
+            color: var(--gold);
+        }
+
+        .text-green {
+            color: var(--green-primary);
+        }
+
+        .text-muted {
+            color: var(--text-light);
+        }
+
+        strong {
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        /* --- LAYOUT --- */
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .container-wide {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        section {
+            padding: 90px 0;
+        }
+
+        section.section-lg {
+            padding: 120px 0;
+        }
+
+        section.section-sm {
+            padding: 60px 0;
+        }
+
+        /* --- SCROLL ANIMATIONS --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.75s ease, transform 0.75s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-1 {
+            transition-delay: 0.12s;
+        }
+
+        .delay-2 {
+            transition-delay: 0.22s;
+        }
+
+        .delay-3 {
+            transition-delay: 0.32s;
+        }
+
+        .delay-4 {
+            transition-delay: 0.42s;
+        }
+
+        /* ============================================================
+           SECTION 1 — HERO
+        ============================================================ */
+        .hero {
+            background: var(--green-deep);
+            color: var(--white);
+            padding: 60px 0 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+
+
+
+
+        .hero .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-label {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--gold);
+            border: 1px solid rgba(197, 160, 40, 0.35);
+            padding: 6px 14px;
+            border-radius: 20px;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            color: var(--white);
+            margin-bottom: 22px;
+            max-width: 780px;
+        }
+
+        .hero h1 em {
+            font-style: italic;
+            color: var(--gold);
+        }
+
+        .hero-sub {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.78);
+            max-width: 680px;
+            margin-bottom: 14px;
+            line-height: 1.7;
+        }
+
+        .hero-proof {
+            font-size: 0.85rem;
+            color: rgba(197, 160, 40, 0.85);
+            font-style: italic;
+            margin-bottom: 0;
+            letter-spacing: 0.01em;
+        }
+
+        /* CTA Button */
+        .btn-gold {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--white);
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+            font-size: 0.97rem;
+            padding: 16px 32px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s ease, transform 0.2s ease;
+            box-shadow: 0 4px 18px rgba(197, 160, 40, 0.28);
+            letter-spacing: 0.01em;
+        }
+
+        .btn-gold:hover {
+            background: var(--gold-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-ghost {
+            display: inline-block;
+            background: transparent;
+            color: var(--white);
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 600;
+            font-size: 0.97rem;
+            padding: 15px 30px;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-ghost:hover {
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+
+
+        /* ============================================================
+           SECTION 2 — VSL PLACEHOLDER
+        ============================================================ */
+        .vsl-section {
+            background: var(--green-primary);
+            padding: 70px 0;
+        }
+
+        .vsl-player {
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            max-width: 760px;
+            margin: 0 auto;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+            transition: transform 0.3s ease;
+        }
+
+        .vsl-player:hover {
+            transform: scale(1.008);
+        }
+
+        .vsl-caption {
+            text-align: center;
+            margin-top: 18px;
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.65);
+            font-style: italic;
+        }
+
+        .vsl-desktop {
+            display: block;
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16/9;
+        }
+
+        .vsl-mobile {
+            display: none;
+            width: 100%;
+            height: auto;
+            aspect-ratio: 9/16;
+        }
+
+        /* ============================================================
+           SECTION 3 — PROBLEM
+        ============================================================ */
+        .problem-section {
+            background: var(--white);
+            border-top: 1px solid var(--border);
+        }
+
+        .problem-text {
+            font-size: 1.15rem;
+            line-height: 1.85;
+            color: var(--text-mid);
+            max-width: 720px;
+        }
+
+        .problem-pivot {
+            margin-top: 28px;
+            font-size: 1.25rem;
+            font-family: 'DM Serif Display', serif;
+            color: var(--text-dark);
+            border-left: 3px solid var(--gold);
+            padding-left: 20px;
+        }
+
+        /* ============================================================
+           SECTION 4 — BEFORE / AFTER
+        ============================================================ */
+        .story-section {
+            background: var(--off-white);
+            border-top: 1px solid var(--border);
+        }
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+            margin-top: 48px;
+        }
+
+        .story-card {
+            padding: 36px;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .story-card.before {
+            background: var(--white);
+            border: 1px solid var(--border);
+        }
+
+        .story-card.after {
+            background: var(--white);
+            border: 1px solid var(--border);
+        }
+
+        .story-tag {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 4px;
+            margin-bottom: 16px;
+        }
+
+        .story-card.before .story-tag {
+            background: #fed7d7;
+            color: var(--danger);
+        }
+
+        .story-card.after .story-tag {
+            background: #c6f6d5;
+            color: #276749;
+        }
+
+        .story-card p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--text-mid);
+        }
+
+        .story-close {
+            margin-top: 40px;
+            text-align: center;
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.5rem;
+            color: var(--green-primary);
+            font-style: italic;
+        }
+
+        /* ============================================================
+           SECTION: CALCULATOR
+        ============================================================ */
+        .calculator-section {
+            background: var(--white);
+            border-top: 1px solid var(--border);
+            padding: 70px 0;
+        }
+
+        .calculator-box {
+            background: var(--off-white);
+            border-radius: 12px;
+            padding: 60px;
+            text-align: center;
+            margin: 0 auto;
+            max-width: 800px;
+            position: relative;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.03);
+        }
+
+        .input-group {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .input-wrapper {
+            flex: 1;
+            min-width: 200px;
+            text-align: left;
+        }
+
+        .input-wrapper label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--green-primary);
+        }
+
+        .input-wrapper input {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid var(--border);
+            border-radius: 6px;
+            font-size: 1rem;
+            background: var(--white);
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .calc-btn {
+            background: var(--danger);
+            color: white;
+            border: none;
+            padding: 16px 32px;
+            font-size: 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(229, 62, 62, 0.3);
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .calc-btn:hover {
+            background: #c53030;
+            transform: translateY(-2px);
+        }
+
+        .result-box {
+            margin-top: 30px;
+            font-size: 1.1rem;
+            padding: 20px;
+            border-radius: 8px;
+            background: #fff5f5;
+            display: none;
+            border-left: 5px solid var(--danger);
+        }
+
+        /* ============================================================
+           SECTION: DEMO BAR
+        ============================================================ */
+        .demo-bar {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 20px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            max-width: 860px;
+            margin: -35px auto 40px auto;
+            border: 1px solid var(--border);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 5;
+        }
+
+        .demo-bar-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex: 1;
+        }
+
+        .demo-logo {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+        }
+
+        .demo-text {
+            text-align: left;
+        }
+
+        .demo-text h3 {
+            color: var(--green-primary);
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+        }
+
+        .demo-text p {
+            font-size: 0.9rem;
+            color: var(--text-mid);
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .demo-bar-right {
+            flex-shrink: 0;
+        }
+
+        .btn-outline {
+            display: inline-block;
+            background: transparent;
+            border: 2px solid var(--green-primary);
+            color: var(--green-primary);
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        .btn-outline:hover {
+            background: var(--green-primary);
+            color: var(--white);
+        }
+
+        /* ============================================================
+           SECTION 5 — DELIVERABLE STACK
+        ============================================================ */
+        .offer-section {
+            background: var(--green-deep);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+
+
+        .offer-section .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .offer-section h2 {
+            color: var(--white);
+            margin-bottom: 10px;
+        }
+
+        .deliverables-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 36px 0 40px;
+            font-size: 0.95rem;
+        }
+
+        .deliverables-table thead tr {
+            border-bottom: 1px solid rgba(197, 160, 40, 0.35);
+        }
+
+        .deliverables-table thead th {
+            text-align: left;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(197, 160, 40, 0.7);
+            padding: 0 16px 14px 0;
+        }
+
+        .deliverables-table thead th:last-child {
+            display: none;
+        }
+
+        .deliverables-table tbody tr {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            transition: background 0.15s ease;
+        }
+
+        .deliverables-table tbody tr:hover {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .deliverables-table tbody td {
+            padding: 16px 16px 16px 0;
+            vertical-align: top;
+        }
+
+        .deliverables-table tbody td:first-child {
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        .deliverables-table tbody td:nth-child(2) {
+            color: rgba(255, 255, 255, 0.65);
+            font-size: 0.9rem;
+        }
+
+        .deliverables-table tbody td:last-child {
+            display: none;
+        }
+
+        .price-summary {
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+            padding-top: 28px;
+            text-align: center;
+        }
+
+        .price-total-label {
+            font-size: 0.78rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.4);
+            margin-bottom: 6px;
+        }
+
+        .price-total {
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: line-through;
+            margin-bottom: 6px;
+        }
+
+        .price-investment {
+            font-family: 'DM Serif Display', serif;
+            font-size: 3rem;
+            color: var(--gold);
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .price-split {
+            font-size: 0.88rem;
+            color: rgba(255, 255, 255, 0.45);
+            margin-bottom: 30px;
+        }
+
+        /* Guarantee Box */
+        .guarantee-box {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 25px;
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.7);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-align: left;
+            max-width: 600px;
+            margin: 25px auto 0;
+        }
+
+        /* ============================================================
+           SECTION 7 — FIT CHECK
+        ============================================================ */
+        .fit-section {
+            background: var(--white);
+            border-top: 1px solid var(--border);
+        }
+
+        .fit-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+            margin-top: 40px;
+        }
+
+        .fit-card {
+            padding: 32px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+        }
+
+        .fit-card.yes {
+            background: var(--white);
+        }
+
+        .fit-card.no {
+            background: var(--white);
+        }
+
+        .fit-card-label {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+
+        .fit-card.yes .fit-card-label {
+            color: var(--success);
+        }
+
+        .fit-card.no .fit-card-label {
+            color: var(--text-light);
+        }
+
+        .fit-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            font-size: 0.95rem;
+            color: var(--text-mid);
+        }
+
+        .fit-list li:last-child {
+            border-bottom: none;
+        }
+
+        .fit-icon {
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        /* ============================================================
+           SECTION 8 — FAQ
+        ============================================================ */
+        .faq-section {
+            background: var(--off-white);
+            border-top: 1px solid var(--border);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+            overflow: hidden;
+        }
+
+        .faq-item:first-child {
+            border-top: 1px solid var(--border);
+        }
+
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 22px 0;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            gap: 20px;
+        }
+
+        .faq-question:hover {
+            color: var(--green-primary);
+        }
+
+        .faq-icon {
+            flex-shrink: 0;
+            width: 26px;
+            height: 26px;
+            background: var(--green-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--green-primary);
+            transition: transform 0.3s ease, background 0.2s ease;
+        }
+
+        .faq-item.active .faq-icon {
+            background: var(--green-primary);
+            color: white;
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+
+        .faq-answer-inner {
+            padding: 0 0 24px 0;
+            font-size: 0.97rem;
+            color: var(--text-mid);
+            line-height: 1.75;
+        }
+
+        /* ============================================================
+           SECTION 9 — FINAL CTA & CALENDLY
+        ============================================================ */
+        .cta-section {
+            background: var(--green-deep);
+            color: var(--white);
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+
+
+        .cta-section .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-section h2 {
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            color: rgba(255, 255, 255, 0.68);
+            max-width: 560px;
+            margin: 0 auto 42px;
+            font-size: 1.05rem;
+            line-height: 1.75;
+        }
+
+        .calendly-wrapper {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            min-height: 680px;
+            margin: 0 auto;
+            max-width: 780px;
+        }
+
+        /* --- FOOTER STRIP --- */
+        .footer-strip {
+            background: #07150f;
+            padding: 22px 0;
+            text-align: center;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.2);
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .footer-strip a {
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        .footer-strip a:hover {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* --- MOBILE RESPONSIVENESS --- */
+        @media (max-width: 700px) {
+            section {
+                padding: 60px 0;
+            }
+
+            section.section-lg {
+                padding: 80px 0;
+            }
+
+            section.section-sm {
+                padding: 40px 0;
+            }
+
+            .story-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .fit-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .deliverables-table {
+                font-size: 0.88rem;
+            }
+
+            .deliverables-table thead th:nth-child(2),
+            .deliverables-table tbody td:nth-child(2) {
+                display: none;
+            }
+
+            .price-investment {
+                font-size: 2.4rem;
+            }
+
+            /* Swap Videos on Mobile */
+            .vsl-desktop {
+                display: none;
+            }
+
+            .vsl-mobile {
+                display: block;
+                margin: 0 auto;
+                max-width: 450px;
+            }
+
+            /* Mobile Demo Bar */
+            .demo-bar {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+                margin-top: -30px;
+            }
+
+            .demo-bar-left {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .demo-text {
+                text-align: center;
+            }
+
+            .demo-bar-right {
+                width: 100%;
+            }
+
+            .demo-bar-right .btn-outline {
+                display: block;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="hero">
+        <div class="container">
+            <div class="hero-label">Case Study | Digital Infrastructure for Plumbers</div>
+
+            <h1 class="reveal">
+                I let you focus on the pipes,<br>
+                while I focus on your <em>tech.</em>
+            </h1>
+
+            <p class="hero-sub reveal delay-1">
+                You shouldn't have to choose between fixing a leak and finding your next job. I build the digital
+                systems that capture emergency leads and keep your schedule full while your hands are on the tools.
+            </p>
+
+            <p class="hero-proof reveal delay-2">Built as a demo for plumbers</p>
+        </div>
+    </header>
+
+    <section class="vsl-section">
+        <div class="container">
+            <div class="vsl-player reveal">
+                <video class="vsl-desktop" controls playsinline>
+                    <source src="videos/Plumber VSL PC.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <video class="vsl-mobile" controls playsinline>
+                    <source src="videos/Plumber VSL mobile.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <p class="vsl-caption reveal delay-1">
+                (2X OPTION AVAILABLE) Watch: Full walkthrough of the infrastructure I built for plumbers — including
+                missed call automations (only 5 min)
+            </p>
+        </div>
+    </section>
+
+    <!-- DEMO BAR INJECTED BETWEEN SECTIONS -->
+    <div class="container" style="position: relative;">
+        <div class="demo-bar reveal">
+            <div class="demo-bar-left">
+                <img src="https://assets.cdn.filesafe.space/ptsfKyPFZVchbY968oQQ/media/699e6ab35dfd5067d9ff2d4c.webp"
+                    alt="NB Plumber Joe Demo Logo" class="demo-logo">
+                <div class="demo-text">
+                    <h3>Check out the NB Plumber Joe Demo</h3>
+                    <p>Interact with the site to get a feel for the automations. Everything can be customized to your
+                        business needs.</p>
+                </div>
+            </div>
+            <div class="demo-bar-right">
+                <a href="https://www.nbplumberjoe.org/home" target="_blank" class="btn-outline">
+                    Explore the Demo
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <section class="problem-section section-sm">
+        <div class="container">
+            <div class="label reveal">The "Under The Sink" Dilemma</div>
+            <p class="problem-text reveal delay-1">
+                Sometimes you're under a sink, wrestling with a rusted P-trap, or roughing in a new bathroom. Your phone
+                rings. It's a homeowner with a plumbing emergency. You can't answer it because your hands are covered in
+                grime or PVC cement.
+                <br><br>
+                That customer doesn't leave a voicemail... because when water is pooling on their floor, they just call
+                the next plumber on Google. You didn't lose that job because you aren't skilled... You lost it because
+                you were working.
+            </p>
+            <p class="problem-pivot reveal delay-2">
+                Your business shouldn't stop running just because you picked up a wrench.
+            </p>
+        </div>
+    </section>
+
+    <section class="story-section">
+        <div class="container">
+            <div class="reveal">
+                <div class="label">Why Great Plumbers Lose Money</div>
+                <h2>Before and After in 9 Days</h2>
+            </div>
+
+            <div class="story-grid">
+                <div class="story-card before reveal delay-1">
+                    <div class="story-tag">Before</div>
+                    <p>When a pipe bursts, 60% of customers hire the first business that answers the phone. If you're
+                        busy, you're handing a high value emergency repair to your competitors. Word of mouth is
+                        powerful, but it's not enough in 2026. Without a digital system to capture high-urgency jobs,
+                        you are leaking revenue every single week while spending your evenings writing up water heater
+                        quotes and chasing late payments.</p>
+                </div>
+                <div class="story-card after reveal delay-2">
+                    <div class="story-tag">After</div>
+                    <p>In 9 days or less, I can build a rugged digital toolbox. A smart website captures urgent jobs and
+                        missed calls get an automated text back within seconds. The system books dispatch fees and
+                        collects deposits automatically while you are working. Your digital infrastructure captures the
+                        high value emergencies you were previously losing, and your routing runs smoothly.</p>
+                </div>
+            </div>
+
+            <p class="story-close reveal delay-3">This is what a true Plumber's Digital Toolbox means.</p>
+        </div>
+    </section>
+
+    <section class="calculator-section section-sm">
+        <div class="container">
+            <div class="calculator-box reveal">
+                <h2 style="margin-bottom: 10px;">📉 The "Missed Leak" Calculator</h2>
+                <p style="margin-bottom: 20px;">See how much those missed emergency calls are actually costing you.</p>
+
+                <div class="input-group">
+                    <div class="input-wrapper">
+                        <label for="jobValue">Average Job Profit ($)</label>
+                        <input type="number" id="jobValue" placeholder="e.g. 600">
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="missedCalls">Missed Calls / Week</label>
+                        <input type="number" id="missedCalls" placeholder="e.g. 4">
+                    </div>
+                </div>
+
+                <button class="calc-btn" onclick="calculateLoss()">Reveal Lost Revenue</button>
+                <div id="result" class="result-box"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="offer-section section-lg">
+        <div class="container">
+            <div class="reveal">
+                <div class="label"
+                    style="background: rgba(197,160,40,0.1); color: var(--gold); border-color: rgba(197,160,40,0.25);">
+                    What's Inside</div>
+                <h2>The Infrastructure Stack</h2>
+                <p style="color: rgba(255,255,255,0.55); margin-top: 10px;">A reliable digital setup designed to capture
+                    urgent jobs and streamline your routing.</p>
+            </div>
+
+            <table class="deliverables-table reveal delay-1">
+                <thead>
+                    <tr>
+                        <th>What's Built</th>
+                        <th>What It Does</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Custom Domain & Professional Email</td>
+                        <td>Acquisition, DNS Setup, and M365/Google Workspace configuration</td>
+                    </tr>
+                    <tr>
+                        <td>Deliverability Security</td>
+                        <td>SPF, DKIM, and DMARC configuration so your emails don't hit spam</td>
+                    </tr>
+                    <tr>
+                        <td>Landing Page Architecture</td>
+                        <td>A smart, custom-built website without generic templates</td>
+                    </tr>
+                    <tr>
+                        <td>Lead Capture & Missed Call Automations</td>
+                        <td>Automatic SMS text back to customers when you miss their call</td>
+                    </tr>
+                    <tr>
+                        <td>Phone / SMS Integrations</td>
+                        <td>Configuration of your business phone line and texting capabilities</td>
+                    </tr>
+                    <tr>
+                        <td>Full "Owner's Manual" Documentation</td>
+                        <td>A complete walkthrough of your new IT infrastructure so you own it</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="fit-section section-sm">
+        <div class="container">
+            <div class="reveal">
+                <div class="label">Is This for You?</div>
+                <h2>Who This Is Built For</h2>
+            </div>
+
+            <div class="fit-grid">
+                <div class="fit-card yes reveal delay-1">
+                    <div class="fit-card-label">✓ &nbsp;This is built for you if:</div>
+                    <ul class="fit-list">
+                        <li><span class="fit-icon">✅</span> You need a rugged digital setup to capture urgent plumbing
+                            jobs</li>
+                        <li><span class="fit-icon">✅</span> You want automated missed call text backs to save lost leads
+                        </li>
+                        <li><span class="fit-icon">✅</span> You want to collect dispatch fees and book appointments
+                            online</li>
+                        <li><span class="fit-icon">✅</span> You want an expert to handle the deep technical
+                            troubleshooting</li>
+                    </ul>
+                </div>
+                <div class="fit-card no reveal delay-2">
+                    <div class="fit-card-label">✗ &nbsp;This is not for you if:</div>
+                    <ul class="fit-list">
+                        <li><span class="fit-icon" style="color: var(--text-light);">✗</span> You have time to answer
+                            every call manually while on the job</li>
+                        <li><span class="fit-icon" style="color: var(--text-light);">✗</span> You want to micromanage
+                            the technical build and integrations yourself</li>
+                        <li><span class="fit-icon" style="color: var(--text-light);">✗</span> You aren't generating
+                            enough calls to need automation yet</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section">
+        <div class="container">
+            <div class="reveal">
+                <div class="label">Questions</div>
+                <h2>Common Questions</h2>
+            </div>
+
+            <div style="margin-top: 42px;" class="reveal delay-1">
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Do I need to know how to code or use complex software?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="faq-answer-inner">Not at all. I handle all the technical troubleshooting, API
+                            connections, and automations. Your system will be ready to use on day one, and I will show
+                            you exactly how to operate it.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        How long does the build actually take?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="faq-answer-inner">Usually within a few weeks from kickoff to handoff. You'll need a
+                            brief onboarding call to give me the details of your current setup, and I handle the heavy
+                            lifting from there.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Will this work for my specific plumbing niche?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="faq-answer-inner">Yes. Whether you focus on emergency repairs, commercial contracts,
+                            or residential rough-ins, the automations are customized to filter for the exact type of
+                            jobs you want to capture.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        What happens after handoff?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="faq-answer-inner">You get full system documentation ("Owner's Manual") so you can
+                            manage your operations yourself. If you want ongoing IT support or continuous optimization,
+                            we can discuss a maintenance plan.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <div class="footer-strip">
+        &copy; 2026 Cromwell Consulting &nbsp;·&nbsp;
+        <a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp;
+        <a href="terms.html">Terms of Service</a>
+    </div>
+
+    <script>
+        // --- CALCULATOR LOGIC ---
+        function calculateLoss() {
+            const jobValue = document.getElementById('jobValue').value;
+            const missedCalls = document.getElementById('missedCalls').value;
+            const resultBox = document.getElementById('result');
+
+            if (!jobValue || !missedCalls) {
+                resultBox.style.display = 'block';
+                resultBox.style.background = '#edf2f7';
+                resultBox.style.borderLeft = '5px solid #CBD5E0';
+                resultBox.style.color = '#2D3748';
+                resultBox.innerHTML = "Please enter both average profit and missed calls.";
+                return;
+            }
+
+            const annualLoss = jobValue * missedCalls * 52;
+
+            const formattedLoss = new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD',
+                maximumFractionDigits: 0
+            }).format(annualLoss);
+
+            resultBox.style.display = 'block';
+            resultBox.style.background = '#fff5f5';
+            resultBox.style.borderLeft = '5px solid var(--danger)';
+            resultBox.style.color = 'var(--text-dark)';
+            resultBox.innerHTML = `You are losing <span style="color: var(--danger); font-weight: 800; font-size: 1.4rem;">${formattedLoss} per year</span> by not following up within 60 seconds.`;
+        }
+
+        // --- SCROLL REVEAL ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                } else if (entry.boundingClientRect.top > 0) {
+                    entry.target.classList.remove('active');
+                }
+            });
+        }, { threshold: 0.12 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // --- FAQ ACCORDION ---
+        document.querySelectorAll('.faq-question').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const item = btn.parentElement;
+                const answer = btn.nextElementSibling;
+                const icon = btn.querySelector('.faq-icon');
+                const isOpen = item.classList.contains('active');
+
+                // Close all
+                document.querySelectorAll('.faq-item.active').forEach(openItem => {
+                    openItem.classList.remove('active');
+                    openItem.querySelector('.faq-answer').style.maxHeight = null;
+                    openItem.querySelector('.faq-icon').textContent = '+';
+                });
+
+                // Open clicked if it was closed
+                if (!isOpen) {
+                    item.classList.add('active');
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                    icon.textContent = '×';
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

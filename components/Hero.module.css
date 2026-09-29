@@ -1,0 +1,153 @@
+.heroSection {
+  padding-top: 120px; /* Space for header */
+  padding-bottom: var(--pad-y);
+  position: relative;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--pad-x);
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+
+.textColumn {
+  width: 100%;
+}
+
+
+
+.eyebrow {
+  font-size: var(--step--1);
+  letter-spacing: 0.05em;
+  color: var(--muted-dark);
+  margin-bottom: 24px;
+}
+
+.headline {
+  font-size: var(--step-3);
+  margin-bottom: 32px;
+  max-width: 15ch;
+}
+
+.rotatingContainer {
+  display: inline-flex;
+  position: relative;
+  overflow: hidden;
+  vertical-align: bottom;
+  color: var(--blue);
+  margin-left: 0.25em;
+}
+
+.spacer {
+  visibility: hidden;
+}
+
+.rotatingWord {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease;
+}
+
+.activeWord {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.inactiveWord {
+  transform: translateY(100%);
+  opacity: 0;
+}
+
+.support {
+  font-size: var(--step-0);
+  color: var(--muted-dark);
+  margin-bottom: 48px;
+  max-width: 40ch;
+}
+
+.downCue {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: var(--step--1);
+  color: var(--muted-dark);
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-8px); }
+  60% { transform: translateY(-4px); }
+}
+
+.collageColumn {
+  width: 100%;
+  height: 60vh;
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  background-color: var(--ink-raised);
+  border: 1px solid var(--line-dark);
+}
+
+.collageWrapper {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+  height: 140%; /* Taller than container to allow scrolling */
+  position: absolute;
+  top: -20%;
+  left: 0;
+  padding: 16px;
+}
+
+.collageCol {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+  will-change: transform;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 133%; /* 3:4 aspect ratio approx */
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: var(--navy-deep);
+}
+
+.collageImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (min-width: 1024px) {
+  .container {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .textColumn {
+    width: 42%;
+  }
+
+  .collageColumn {
+    width: 58%;
+    height: 85vh; /* Match sticky height area */
+  }
+
+  .stickyContent {
+    position: sticky;
+    top: 18vh;
+  }
+}

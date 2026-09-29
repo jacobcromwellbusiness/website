@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="How I built a complete digital infrastructure system — fully automated, fully handed over.">
+    <title>Digital Infrastructure Case Study | Cromwell Consulting</title>
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- BRAND VARIABLES --- */
+        :root {
+            --green-deep:    #0f291e;
+            --green-primary: #1B4332;
+            --green-mid:     #2d6a4f;
+            --green-light:   #f0fdf4;
+            --gold:          #C5A028;
+            --gold-hover:    #9E801F;
+            --gold-light:    #fefce8;
+            --white:         #ffffff;
+            --off-white:     #f9fafb;
+            --text-dark:     #1a2e24;
+            --text-mid:      #4a5568;
+            --text-light:    #718096;
+            --border:        #e2e8f0;
+            --border-green:  #c6f6d5;
+            --danger:        #e53e3e;
+            --success:       #10b981;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', system-ui, sans-serif;
+            background: var(--off-white);
+            color: var(--text-dark);
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* --- TYPOGRAPHY --- */
+        .serif { font-family: 'DM Serif Display', Georgia, serif; }
+
+        h1, h2, h3 { font-family: 'DM Serif Display', Georgia, serif; line-height: 1.15; }
+        h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 400; letter-spacing: -0.01em; }
+        h2 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 400; }
+        h3 { font-size: 1.25rem; font-weight: 400; }
+        p  { font-size: 1.05rem; color: var(--text-mid); }
+
+        .label {
+            display: inline-block;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--gold);
+            background: var(--gold-light);
+            border: 1px solid rgba(197,160,40,0.25);
+            padding: 5px 12px;
+            border-radius: 20px;
+            margin-bottom: 18px;
+        }
+
+        .text-gold    { color: var(--gold); }
+        .text-green   { color: var(--green-primary); }
+        .text-muted   { color: var(--text-light); }
+        strong        { color: var(--text-dark); font-weight: 600; }
+
+        /* --- LAYOUT --- */
+        .container { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+        .container-wide { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+        section { padding: 90px 0; }
+        section.section-lg { padding: 120px 0; }
+        section.section-sm { padding: 60px 0; }
+
+        /* --- SCROLL ANIMATIONS --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.75s ease, transform 0.75s ease;
+        }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .delay-1 { transition-delay: 0.12s; }
+        .delay-2 { transition-delay: 0.22s; }
+        .delay-3 { transition-delay: 0.32s; }
+        .delay-4 { transition-delay: 0.42s; }
+
+        /* ============================================================
+           SECTION 1 — HERO
+        ============================================================ */
+        .hero {
+            background: var(--green-deep);
+            color: var(--white);
+            padding: 60px 0 30px; /* Massively reduced top padding here */
+            position: relative;
+            overflow: hidden;
+        }
+
+
+
+
+        .hero .container { position: relative; z-index: 2; }
+
+        .hero-label {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--gold);
+            border: 1px solid rgba(197,160,40,0.35);
+            padding: 6px 14px;
+            border-radius: 20px;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 { color: var(--white); margin-bottom: 22px; max-width: 780px; }
+        .hero h1 em { font-style: italic; color: var(--gold); }
+
+        .hero-sub {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.78);
+            max-width: 680px;
+            margin-bottom: 14px;
+            line-height: 1.7;
+        }
+
+        .hero-proof {
+            font-size: 0.85rem;
+            color: rgba(197,160,40,0.85);
+            font-style: italic;
+            margin-bottom: 0;
+            letter-spacing: 0.01em;
+        }
+
+        /* CTA Button */
+        .btn-gold {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--white);
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+            font-size: 0.97rem;
+            padding: 16px 32px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s ease, transform 0.2s ease;
+            box-shadow: 0 4px 18px rgba(197,160,40,0.28);
+            letter-spacing: 0.01em;
+        }
+        .btn-gold:hover { background: var(--gold-hover); transform: translateY(-2px); }
+
+        .btn-ghost {
+            display: inline-block;
+            background: transparent;
+            color: var(--white);
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 600;
+            font-size: 0.97rem;
+            padding: 15px 30px;
+            border-radius: 6px;
+            border: 1px solid rgba(255,255,255,0.3);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .btn-ghost:hover { background: rgba(255,255,255,0.08); }
+
+
+
+        /* ============================================================
+           SECTION 2 — VSL PLACEHOLDER
+        ============================================================ */
+        .vsl-section {
+            background: var(--green-primary);
+            padding: 70px 0;
+        }
+
+        .vsl-player {
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            max-width: 760px;
+            margin: 0 auto;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+            transition: transform 0.3s ease;
+        }
+        .vsl-player:hover { transform: scale(1.008); }
+
+        .vsl-caption {
+            text-align: center;
+            margin-top: 18px;
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.65);
+            font-style: italic;
+        }
+
+        /* ============================================================
+           SECTION 3 — PROBLEM
+        ============================================================ */
+        .problem-section {
+            background: var(--white);
+            border-top: 1px solid var(--border);
+        }
+
+        .problem-text {
+            font-size: 1.15rem;
+            line-height: 1.85;
+            color: var(--text-mid);
+            max-width: 720px;
+        }
+        .problem-pivot {
+            margin-top: 28px;
+            font-size: 1.25rem;
+            font-family: 'DM Serif Display', serif;
+            color: var(--text-dark);
+            border-left: 3px solid var(--gold);
+            padding-left: 20px;
+        }
+
+        /* ============================================================
+           SECTION 4 — BEFORE / AFTER
+        ============================================================ */
+        .story-section {
+            background: var(--off-white);
+            border-top: 1px solid var(--border);
+        }
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+            margin-top: 48px;
+        }
+
+        .story-card {
+            padding: 36px;
+            border-radius: 10px;
+            position: relative;
+        }
+        .story-card.before {
+            background: var(--white);
+            border: 1px solid var(--border);
+        }
+        .story-card.after {
+            background: var(--white);
+            border: 1px solid var(--border);
+        }
+
+        .story-tag {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 4px;
+            margin-bottom: 16px;
+        }
+        .story-card.before .story-tag { background: #fed7d7; color: var(--danger); }
+        .story-card.after  .story-tag { background: #c6f6d5; color: #276749; }
+
+        .story-card p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--text-mid);
+        }
+
+        .story-close {
+            margin-top: 40px;
+            text-align: center;
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.5rem;
+            color: var(--green-primary);
+            font-style: italic;
+        }
+
+        /* ============================================================
+           SECTION 5 — DELIVERABLE STACK
+        ============================================================ */
+        .offer-section {
+            background: var(--green-deep);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .offer-section .container { position: relative; z-index: 2; }
+        .offer-section h2 { color: var(--white); margin-bottom: 10px; }
+
+        .deliverables-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 36px 0 40px;
+            font-size: 0.95rem;
+        }
+        .deliverables-table thead tr {
+            border-bottom: 1px solid rgba(197,160,40,0.35);
+        }
+        .deliverables-table thead th {
+            text-align: left;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(197,160,40,0.7);
+            padding: 0 16px 14px 0;
+        }
+        .deliverables-table thead th:last-child { display: none; }
+        .deliverables-table tbody tr {
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            transition: background 0.15s ease;
+        }
+        .deliverables-table tbody tr:hover { background: rgba(255,255,255,0.03); }
+        .deliverables-table tbody td {
+            padding: 16px 16px 16px 0;
+            vertical-align: top;
+        }
+        .deliverables-table tbody td:first-child { font-weight: 600; color: var(--white); }
+        .deliverables-table tbody td:nth-child(2) { color: rgba(255,255,255,0.65); font-size: 0.9rem; }
+        .deliverables-table tbody td:last-child { display: none; }
+
+        .price-summary {
+            border-top: 1px solid rgba(255,255,255,0.12);
+            padding-top: 28px;
+            text-align: center;
+        }
+        .price-total-label {
+            font-size: 0.78rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.4);
+            margin-bottom: 6px;
+        }
+        .price-total {
+            font-size: 1.05rem;
+            color: rgba(255,255,255,0.5);
+            text-decoration: line-through;
+            margin-bottom: 6px;
+        }
+        .price-investment {
+            font-family: 'DM Serif Display', serif;
+            font-size: 3rem;
+            color: var(--gold);
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+        .price-split {
+            font-size: 0.88rem;
+            color: rgba(255,255,255,0.45);
+            margin-bottom: 30px;
+        }
+
+        /* ============================================================
+           SECTION 6 — TESTIMONIAL
+        ============================================================ */
+        .testimonial-section {
+            background: var(--green-primary);
+            padding: 80px 0;
+        }
+
+        .testimonial-card {
+            max-width: 700px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-left: 4px solid var(--gold);
+            border-radius: 10px;
+            padding: 42px 48px;
+            position: relative;
+        }
+        .testimonial-card::before {
+            content: '\201C';
+            position: absolute;
+            top: -10px; left: 36px;
+            font-family: 'DM Serif Display', serif;
+            font-size: 5rem;
+            color: var(--gold);
+            opacity: 0.4;
+            line-height: 1;
+        }
+        .testimonial-quote {
+            font-size: 1.12rem;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.88);
+            margin-bottom: 28px;
+            font-style: italic;
+        }
+        .testimonial-attr {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .testimonial-avatar {
+            width: 44px; height: 44px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.1rem;
+            color: var(--white);
+            font-weight: 400;
+            flex-shrink: 0;
+        }
+        .testimonial-name {
+            font-weight: 600;
+            color: var(--white);
+            font-size: 0.95rem;
+        }
+        .testimonial-title { font-size: 0.82rem; color: rgba(255,255,255,0.5); margin-top: 2px; }
+
+        /* ============================================================
+           SECTION 7 — FIT CHECK
+        ============================================================ */
+        .fit-section {
+            background: var(--white);
+            border-top: 1px solid var(--border);
+        }
+
+        .fit-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+            margin-top: 40px;
+        }
+
+        .fit-card {
+            padding: 32px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+        }
+        .fit-card.yes { background: var(--white); }
+        .fit-card.no  { background: var(--white); }
+
+        .fit-card-label {
+            font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
+            text-transform: uppercase; margin-bottom: 18px;
+        }
+        .fit-card.yes .fit-card-label { color: var(--success); }
+        .fit-card.no  .fit-card-label { color: var(--text-light); }
+
+        .fit-list li {
+            display: flex; align-items: flex-start; gap: 10px;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            font-size: 0.95rem;
+            color: var(--text-mid);
+        }
+        .fit-list li:last-child { border-bottom: none; }
+        .fit-icon { flex-shrink: 0; margin-top: 1px; }
+
+        /* ============================================================
+           SECTION 8 — FAQ
+        ============================================================ */
+        .faq-section {
+            background: var(--off-white);
+            border-top: 1px solid var(--border);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+            overflow: hidden;
+        }
+        .faq-item:first-child { border-top: 1px solid var(--border); }
+
+        .faq-question {
+            width: 100%; background: none; border: none;
+            text-align: left; cursor: pointer;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 22px 0;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem; font-weight: 600;
+            color: var(--text-dark);
+            gap: 20px;
+        }
+        .faq-question:hover { color: var(--green-primary); }
+
+        .faq-icon {
+            flex-shrink: 0;
+            width: 26px; height: 26px;
+            background: var(--green-light);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1rem; font-weight: 400;
+            color: var(--green-primary);
+            transition: transform 0.3s ease, background 0.2s ease;
+        }
+        .faq-item.active .faq-icon {
+            background: var(--green-primary);
+            color: white;
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+        .faq-answer-inner {
+            padding: 0 0 24px 0;
+            font-size: 0.97rem;
+            color: var(--text-mid);
+            line-height: 1.75;
+        }
+
+        /* ============================================================
+           SECTION 9 — FINAL CTA & CALENDLY
+        ============================================================ */
+        .cta-section {
+            background: var(--green-deep);
+            color: var(--white);
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .cta-section .container { position: relative; z-index: 2; }
+        .cta-section h2 { color: var(--white); margin-bottom: 20px; }
+        .cta-section p { color: rgba(255,255,255,0.68); max-width: 560px; margin: 0 auto 42px; font-size: 1.05rem; line-height: 1.75; }
+
+        .calendly-wrapper {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            min-height: 680px;
+            margin: 0 auto;
+            max-width: 780px;
+        }
+
+        /* --- FOOTER STRIP --- */
+        .footer-strip {
+            background: #07150f;
+            padding: 22px 0;
+            text-align: center;
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.2);
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+        .footer-strip a { color: rgba(255,255,255,0.3); }
+        .footer-strip a:hover { color: rgba(255,255,255,0.6); }
+
+        /* --- MOBILE RESPONSIVENESS --- */
+        @media (max-width: 700px) {
+            section { padding: 60px 0; }
+            section.section-lg { padding: 80px 0; }
+            section.section-sm { padding: 40px 0; }
+            .story-grid { grid-template-columns: 1fr; }
+            .fit-grid { grid-template-columns: 1fr; }
+            .deliverables-table { font-size: 0.88rem; }
+            .deliverables-table thead th:nth-child(2),
+            .deliverables-table tbody td:nth-child(2) { display: none; }
+            .testimonial-card { padding: 30px 28px; }
+            .price-investment { font-size: 2.4rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="hero">
+    <div class="container">
+        <div class="hero-label">Case Study | Funnel & Lead Acquisition Build</div>
+
+        <h1 class="reveal">
+            How I Built a Fully Automated Lead System for a Strategic Advisor in 30 Days...
+            <em>Completely Handed Over</em>
+        </h1>
+
+        <p class="hero-sub reveal delay-1">
+            Custom web design, workflow automation, seamless data integration... all running together without adding a single hour to your week.
+        </p>
+
+        <p class="hero-proof reveal delay-2">Built for Sharon Lee, Pinnacle Strategic Advisors</p>
+    </div>
+</header>
+
+<section class="vsl-section">
+    <div class="container">
+        <div class="vsl-player reveal">
+            <video
+                controls
+                preload="metadata"
+                style="width: 100%; height: auto; display: block; border-radius: 10px;"
+                poster="">
+                <source src="https://assets.cdn.filesafe.space/lUUMAyxlGVkuN99nhYoO/media/69bd40a24865cd676939966d.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <p class="vsl-caption reveal delay-1">
+            (2X OPTION AVAILABLE) Watch: Full walkthrough of the infrastructure I built — including the live site, back-end data flow, and automations (only 5 min)
+        </p>
+    </div>
+</section>
+
+<section class="problem-section section-sm">
+    <div class="container">
+        <div class="label reveal">The Bottleneck</div>
+        <p class="problem-text reveal delay-1">
+            You're putting in the work to get visible, but your tech stack is a mess. When someone actually reaches out, inquiries sit in your inbox. Data is scattered across different apps that don't talk to each other. You're manually troubleshooting tech issues, moving data around by hand, and ultimately losing leads because your website and backend aren't working together. 
+        </p>
+        <p class="problem-pivot reveal delay-2">
+            The business is working. The technical infrastructure isn't.
+        </p>
+    </div>
+</section>
+
+<section class="story-section">
+    <div class="container">
+        <div class="reveal">
+            <div class="label">The Sharon Lee Story</div>
+            <h2>Before and After in 30 Days</h2>
+        </div>
+
+        <div class="story-grid">
+            <div class="story-card before reveal delay-1">
+                <div class="story-tag">Before</div>
+                <p>Sharon Lee runs Pinnacle Strategic Advisors. She has inbound interest through her podcast and a great reputation. What she didn't have was the digital infrastructure to capture that interest efficently, qualify it, or turn it into booked podcasts. Everything relied on duct taped tech. Inquiries came through DMs. Data was managed manually. No shows had no recovery. The front end was functional, but the back end IT was bleeding time and money.</p>
+            </div>
+            <div class="story-card after reveal delay-2">
+                <div class="story-tag">After</div>
+                <p>In 30 days, we built the full ecosystem. A high converting custom web funnel captures leads, while backend automations map the data seamlessly into a streamlined GoHighLevel pipeline. Automated reminders reminders, no show recovery, and custom integrations handle the heavy lifting. I handled thetechnical troubleshooting and implementation so she didn't have to. Sharon doesn't fight with her tech stack anymore. The system just works.</p>
+            </div>
+        </div>
+
+        <p class="story-close reveal delay-3">This is what done for you infrastructure actually means.</p>
+    </div>
+</section>
+
+<section class="offer-section section-lg">
+    <div class="container">
+        <div class="reveal">
+            <div class="label" style="background: rgba(197,160,40,0.1); color: var(--gold); border-color: rgba(197,160,40,0.25);">What's Inside</div>
+            <h2>The Infrastructure Stack</h2>
+            <p style="color: rgba(255,255,255,0.55); margin-top: 10px;">Web design, deep technical integration, and AI automations. No vague "strategy" talk.</p>
+        </div>
+
+        <table class="deliverables-table reveal delay-1">
+            <thead>
+                <tr>
+                    <th>What's Built</th>
+                    <th>What It Does</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Custom Web Design & Front-End Build</td>
+                    <td>A high-converting, professionally branded site that captures leads 24/7</td>
+                </tr>
+                <tr>
+                    <td>Seamless Data Migration</td>
+                    <td>Cleanly moving your scattered data into one streamlined, centralized CRM</td>
+                </tr>
+                <tr>
+                    <td>Backend IT & Software Integration</td>
+                    <td>Deep technical troubleshooting to ensure your disparate tools actually talk to each other</td>
+                </tr>
+                <tr>
+                    <td>AI-Driven Booking & Recovery Engine</td>
+                    <td>Automated reminders and no-show recovery sequences that cut dropped calls</td>
+                </tr>
+                <tr>
+                    <td>Automated Pipeline Setup (GoHighLevel)</td>
+                    <td>Full setup, tagging, and logic mapping so your operations run without manual entry</td>
+                </tr>
+                <tr>
+                    <td>System Documentation & Handoff</td>
+                    <td>A complete walkthrough of your new IT infrastructure so you own it</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<section class="testimonial-section section-sm">
+    <div class="container">
+        <div class="testimonial-card reveal">
+            <p class="testimonial-quote">
+                Jacob did a tremendous amount of work and a very good job building out my new funnel. We collaborated on a few revisions, and he proved he is able to take very good direction, pivot, and hand me exactly what I wanted. I was looking for a specific approach, and I really love what he put together. 
+                <br><br>
+                Beyond delivering a great funnel, Jacob gave me a lot to think about regarding the future of my operations. He brought excellent ideas to the table about streamlining my fulfillment and leveraging new automations... things that weren't even on my radar when I first reached out to him. I highly recommend his work, and I truly appreciate the insights he provided to help me see the bigger picture for my business.
+			
+
+            </p>
+            <div class="testimonial-attr">
+                <div class="testimonial-avatar">SL</div>
+                <div>
+                    <div class="testimonial-name">Sharon Lee</div>
+                    <div class="testimonial-title">Pinnacle Strategic Advisors</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="fit-section section-sm">
+    <div class="container">
+        <div class="reveal">
+            <div class="label">Is This for You?</div>
+            <h2>Who This Is Built For</h2>
+        </div>
+
+        <div class="fit-grid">
+            <div class="fit-card yes reveal delay-1">
+                <div class="fit-card-label">✓ &nbsp;This is built for you if:</div>
+                <ul class="fit-list">
+                    <li><span class="fit-icon">✅</span> You need a professional web presence backed by actual back end automation</li>
+                    <li><span class="fit-icon">✅</span> You're tired of duct taping software together and want seamless data flow</li>
+                    <li><span class="fit-icon">✅</span> You want an expert to handle the deep technical troubleshooting and migration</li>
+                    <li><span class="fit-icon">✅</span> You want your IT infrastructure built right the first time, then handed over</li>
+                </ul>
+            </div>
+            <div class="fit-card no reveal delay-2">
+                <div class="fit-card-label">✗ &nbsp;This is not for you if:</div>
+                <ul class="fit-list">
+                    <li><span class="fit-icon" style="color: var(--text-light);">✗</span> You're just looking for a pretty website with no functional backend</li>
+                    <li><span class="fit-icon" style="color: var(--text-light);">✗</span> You want to micromanage the technical build and integrations</li>
+                    <li><span class="fit-icon" style="color: var(--text-light);">✗</span> You aren't generating enough interest to need automation yet</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="faq-section">
+    <div class="container">
+        <div class="reveal">
+            <div class="label">Questions</div>
+            <h2>Common Questions</h2>
+        </div>
+
+        <div style="margin-top: 42px;" class="reveal delay-1">
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    Do I need to know how to code or use GoHighLevel?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p class="faq-answer-inner">Not at all. I handle all the technical troubleshooting, API connections, and data migration. If you want to own the account independently, you'll need a $97/mo GHL plan. If you're on a retainer with me, I host the infrastructure for you.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    How long does the build actually take?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p class="faq-answer-inner">30 days from kickoff to handoff. You'll need about 30 minutes for an onboarding call to give me access to your current software and explain your current bottlenecks. I handle the heavy lifting from there.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    What happens to my old data?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p class="faq-answer-inner">I map and migrate it cleanly into the new system. You won't lose your existing contacts or historical lead information during the transition.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    What happens after handoff?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p class="faq-answer-inner">You get full system documentation so you can manage your operations yourself. If you want ongoing IT support, advanced AI agent implementations, or continuous optimization, that's available as a monthly retainer.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+<div class="footer-strip">
+    &copy; 2026 Cromwell Consulting &nbsp;·&nbsp;
+    <a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp;
+    <a href="terms.html">Terms of Service</a>
+</div>
+
+<script>
+    // --- SCROLL REVEAL ---
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            } else if (entry.boundingClientRect.top > 0) {
+                entry.target.classList.remove('active');
+            }
+        });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // --- FAQ ACCORDION ---
+    document.querySelectorAll('.faq-question').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const item = btn.parentElement;
+            const answer = btn.nextElementSibling;
+            const icon = btn.querySelector('.faq-icon');
+            const isOpen = item.classList.contains('active');
+
+            // Close all
+            document.querySelectorAll('.faq-item.active').forEach(openItem => {
+                openItem.classList.remove('active');
+                openItem.querySelector('.faq-answer').style.maxHeight = null;
+                openItem.querySelector('.faq-icon').textContent = '+';
+            });
+
+            // Open clicked if it was closed
+            if (!isOpen) {
+                item.classList.add('active');
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+                icon.textContent = '×';
+            }
+        });
+    });
+</script>
+</body>
+</html>

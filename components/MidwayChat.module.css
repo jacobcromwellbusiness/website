@@ -1,0 +1,126 @@
+.container {
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: var(--max-width, 1200px);
+  margin: 0 auto;
+}
+
+.introDialogContainer {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  width: 100%;
+  padding: 0 20px;
+  position: relative;
+  z-index: 10;
+}
+
+.profilePic {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: var(--navy-deep);
+  object-fit: cover;
+  border: 3px solid var(--border-color);
+  flex-shrink: 0;
+  grid-column: 1;
+  margin-right: 24px;
+  justify-self: flex-end;
+}
+
+.dialogBox {
+  grid-column: 2;
+  background: var(--bg-raised);
+  padding: 20px 24px;
+  border-radius: 4px 16px 16px 16px;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: var(--text-color);
+  width: 360px;
+  max-width: 100%;
+  border: 1px solid var(--border-color);
+}
+
+.dialogText {
+  margin: 0;
+  font-weight: 500;
+}
+
+.buttonGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 480px;
+  padding: 16px 20px 0 20px;
+}
+
+.choiceBtn {
+  background: var(--bg-raised);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  padding: 14px 24px;
+  border-radius: 12px;
+  font-size: 1.05rem;
+  font-weight: 500;
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.choiceBtn.clickable::after {
+  content: '↓';
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.2s ease;
+}
+
+.choiceBtn.clickable:hover {
+  background: var(--navy-deep);
+  color: var(--white);
+  border-color: var(--blue);
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 10px 24px rgba(47, 107, 255, 0.25), 0 4px 12px rgba(47, 107, 255, 0.15);
+}
+
+.choiceBtn.clickable:hover::after {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.choiceBtn.unclickable {
+  cursor: default;
+  opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+  .introDialogContainer {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    justify-items: center;
+    gap: 16px;
+  }
+  
+  .profilePic {
+    grid-column: 1;
+    grid-row: 1;
+    margin-right: 0;
+    justify-self: center;
+  }
+  
+  .dialogBox {
+    grid-column: 1;
+    grid-row: 2;
+    border-radius: 16px;
+    text-align: center;
+  }
+}

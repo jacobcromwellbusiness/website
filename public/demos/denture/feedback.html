@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rate Us</title>
+    <style>
+        /* General Reset & Body Styling */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Main Content Container */
+        .content-wrapper {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-bottom: 80px; /* Space for the fixed footer */
+        }
+
+        /* The Dotted Box Container */
+        .rating-card {
+            border: 1px dotted #ccc;
+            padding: 40px 60px;
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+        }
+
+        /* Logo Styling */
+        .logo {
+            max-width: 250px;
+            margin-bottom: 30px;
+        }
+
+        /* Form Styling */
+        .form-group {
+            text-align: left;
+            margin: 0 auto;
+            width: fit-content;
+        }
+
+        .form-group p {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            font-size: 13px;
+            color: #555;
+            cursor: pointer;
+        }
+
+        .radio-option input[type="radio"] {
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        /* Star Styling */
+        .stars {
+            color: #ffca28; /* Golden yellow */
+            font-size: 16px;
+            margin-right: 5px;
+            letter-spacing: 2px;
+        }
+
+        /* Bottom Footer Bar */
+        .footer-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #2c2d30;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Progress Bar Styling */
+        .progress-container {
+            width: 250px;
+            height: 18px;
+            background-color: #d1d3d4;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background-color: #3498db;
+            width: 8%; /* Starts with a small sliver to show 0% */
+            transition: width 0.4s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .progress-text {
+            color: #fff;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        /* Button Styling */
+        .nav-btn {
+            position: absolute;
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 3px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            transition: background-color 0.2s;
+        }
+
+        .next-btn {
+            right: 20px;
+            background-color: #2b82a7;
+        }
+
+        .next-btn:hover {
+            background-color: #1f6583;
+        }
+
+        .back-btn {
+            left: 20px;
+            background-color: #6c757d;
+            display: none; /* Hidden on step 1 */
+        }
+
+        .back-btn:hover {
+            background-color: #5a6268;
+        }
+
+        /* Iframe Container (Initially Hidden) */
+        #step2 {
+            display: none;
+            width: 100%;
+            max-width: 600px;
+            height: 600px;
+        }
+    </style>
+</head>
+<body>
+<nav id="main-nav"
+        class="sticky top-0 z-50 bg-white/95 dark:bg-surface-dark/95 backdrop-blur-sm border-b border-gray-200 dark:border-gray-700 shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="flex items-center gap-2 group">
+                        <img src="public/images/dr_denture_logo.webp"
+                            alt="Dr Denture Logo"
+                            class="h-10 w-10 sm:h-14 sm:w-14 overflow-hidden rounded-full bg-secondary border-2 border-primary object-cover group-hover:scale-105 transition-transform">
+                        <span
+                            class="font-display font-bold text-lg sm:text-lg md:text-xl text-secondary dark:text-white tracking-tight sm:tracking-normal whitespace-nowrap">Dr Denture</span>
+                    </a>
+                </div>
+                <div class="flex items-center md:hidden">
+                    <button
+                        class="text-gray-500 dark:text-gray-300 hover:text-primary focus:outline-none p-2 rounded-md"
+                        onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" type="button">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+                <div class="hidden md:flex flex-1 justify-center space-x-8 items-center">
+                    <a class="text-gray-700 dark:text-gray-200 hover:text-primary font-medium"
+                        href="index.html">Home</a>
+                    <div class="relative group">
+                        <button
+                            class="text-gray-700 dark:text-gray-200 hover:text-primary font-medium flex items-center gap-1">
+                            About <i class="fa-solid fa-chevron-down text-xs"></i>
+                        </button>
+                        <div
+                            class="absolute left-0 mt-2 w-48 before:absolute before:-top-4 before:left-0 before:w-full before:h-4 bg-white dark:bg-surface-dark rounded-md shadow-lg py-1 border border-gray-200 dark:border-gray-700 hidden group-hover:block">
+                            <a class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                href="team.html">Our Team</a>
+                            <a class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                href="guarantee.html">Guarantee</a>
+                            <a class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                href="about.html">About & FAQ</a>
+                        </div>
+                    </div>
+                    <a class="text-gray-700 dark:text-gray-200 hover:text-primary font-medium"
+                        href="services.html">Services</a>
+                    <a class="text-gray-700 dark:text-gray-200 hover:text-primary font-medium" href="tips.html">Dr Denture's
+                        Denture Tips</a>
+                </div>
+                <div class="hidden md:flex flex-shrink-0">
+                    <a class="bg-primary hover:bg-yellow-500 text-slate-900 px-6 py-2 rounded-full font-bold shadow-glow transition-all"
+                        href="contact.html">Contact Us</a>
+                </div>
+            </div>
+        </div>
+        <div class="md:hidden bg-white dark:bg-surface-dark border-b border-gray-200 dark:border-gray-700 hidden"
+            id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800"
+                    href="index.html">Home</a>
+                <a class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800"
+                    href="about.html">About & FAQ</a>
+                <a class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800"
+                    href="team.html">Our Team</a>
+                <a class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800"
+                    href="guarantee.html">Guarantee</a>
+                <a class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800"
+                    href="services.html">Services</a>
+                <a class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800"
+                    href="tips.html">Tips</a>
+                <a class="block px-3 py-2 rounded-md text-base font-bold text-primary" href="contact.html">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="content-wrapper">
+        <div id="step1" class="rating-card">
+            <img src="public/images/dr_denture_logo.webp" alt="Dr Denture Logo" class="logo">
+            
+            <div class="form-group">
+                <p>Rate Us *</p>
+                <label class="radio-option">
+                    <input type="radio" name="rating" value="5">
+                    <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span> (5 Stars)
+                </label>
+                <label class="radio-option">
+                    <input type="radio" name="rating" value="4">
+                    <span class="stars">&#9733;&#9733;&#9733;&#9733;</span> (4 Stars)
+                </label>
+                <label class="radio-option">
+                    <input type="radio" name="rating" value="3">
+                    <span class="stars">&#9733;&#9733;&#9733;</span> (3 Stars)
+                </label>
+                <label class="radio-option">
+                    <input type="radio" name="rating" value="2">
+                    <span class="stars">&#9733;&#9733;</span> (2 Stars)
+                </label>
+                <label class="radio-option">
+                    <input type="radio" name="rating" value="1">
+                    <span class="stars">&#9733;</span> (1 Star)
+                </label>
+            </div>
+        </div>
+
+        <div id="step2">
+            <iframe
+                src="https://api.leadconnectorhq.com/widget/form/YdEH7frlC9ChPIoeYho4"
+                style="width:100%;height:100%;border:none;border-radius:3px"
+                id="inline-YdEH7frlC9ChPIoeYho4" 
+                data-layout="{'id':'INLINE'}"
+                data-trigger-type="alwaysShow"
+                data-trigger-value=""
+                data-activation-type="alwaysActivated"
+                data-activation-value=""
+                data-deactivation-type="neverDeactivate"
+                data-deactivation-value=""
+                data-form-name="Rate Us Form"
+                data-height="586"
+                data-layout-iframe-id="inline-YdEH7frlC9ChPIoeYho4"
+                data-form-id="YdEH7frlC9ChPIoeYho4"
+                title="Rate Us Form">
+            </iframe>
+            <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+        </div>
+    </div>
+
+    <div class="footer-bar">
+        <button class="nav-btn back-btn" id="backBtn" title="Back">&#9664;</button> <div class="progress-container">
+            <div class="progress-fill" id="progressFill">
+                <span class="progress-text" id="progressText">0%</span>
+            </div>
+        </div>
+        
+        <button class="nav-btn next-btn" id="nextBtn" title="Next">&#9654;</button> </div>
+
+    <script>
+        const step1 = document.getElementById('step1');
+        const step2 = document.getElementById('step2');
+        const nextBtn = document.getElementById('nextBtn');
+        const backBtn = document.getElementById('backBtn');
+        const pFill = document.getElementById('progressFill');
+        const pText = document.getElementById('progressText');
+
+        // Handle Next Click
+        nextBtn.addEventListener('click', function() {
+            const selectedRating = document.querySelector('input[name="rating"]:checked');
+            
+            if (!selectedRating) {
+                alert('Please select a rating before continuing.');
+                return;
+            }
+
+            const ratingValue = parseInt(selectedRating.value);
+
+            if (ratingValue >= 4) {
+                // Route to Google for 4 or 5 stars
+                window.location.href = 'https://google.com';
+            } else {
+                // Hide Step 1, Show Step 2
+                step1.style.display = 'none';
+                step2.style.display = 'block';
+
+                // Update Progress Bar
+                pFill.style.width = '50%';
+                pText.innerText = '50%';
+
+                // Toggle Buttons
+                nextBtn.style.display = 'none';
+                backBtn.style.display = 'flex';
+            }
+        });
+
+        // Handle Back Click
+        backBtn.addEventListener('click', function() {
+            // Hide Step 2, Show Step 1
+            step2.style.display = 'none';
+            step1.style.display = 'block';
+
+            // Reset Progress Bar
+            pFill.style.width = '8%'; // Reset to initial visual sliver
+            pText.innerText = '0%';
+
+            // Toggle Buttons
+            backBtn.style.display = 'none';
+            nextBtn.style.display = 'flex';
+        });
+    </script>
+
+</body>
+</html>

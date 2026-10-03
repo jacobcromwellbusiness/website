@@ -1,7 +1,7 @@
 .footer {
   padding: 48px 0;
-  background-color: var(--ink);
-  border-top: 1px solid var(--line-dark);
+  background-color: transparent;
+  border-top: 1px solid var(--border-color);
 }
 
 .container {
@@ -20,12 +20,12 @@
   font-weight: 600;
   letter-spacing: -0.02em;
   margin-bottom: 8px;
-  color: var(--white);
+  color: var(--text-color);
 }
 
 .details {
   font-size: var(--step--1);
-  color: var(--muted-dark);
+  color: var(--text-muted);
   display: flex;
   align-items: center;
   gap: 12px;
@@ -37,13 +37,13 @@
   gap: 8px;
   font-family: var(--font-display);
   font-size: var(--step--1);
-  color: var(--muted-dark);
+  color: var(--text-muted);
   letter-spacing: 0.05em;
   transition: color 0.2s;
 }
 
 .backToTop:hover, .backToTop:focus-visible {
-  color: var(--white);
+  color: var(--text-color);
 }
 
 @media (min-width: 640px) {

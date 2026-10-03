@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>NB Plumber Joe - Local & Reliable Service</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Montserrat:wght@600;700;800&display=swap"
+        rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#F97316", // Orange from logo
+                        secondary: "#0F172A", // Deep Navy from logo
+                        "background-light": "#F8FAFC",
+                        "background-dark": "#0F172A",
+                        "surface-light": "#FFFFFF",
+                        "surface-dark": "#1E293B",
+                        "text-light": "#334155",
+                        "text-dark": "#E2E8F0",
+                    },
+                    fontFamily: {
+                        sans: ['Roboto', 'sans-serif'],
+                        display: ['Montserrat', 'sans-serif'],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.5rem",
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+                        'glow': '0 0 15px rgba(249, 115, 22, 0.3)',
+                    }
+                },
+            },
+        };
+    </script>
+    <style>
+        html {
+            margin: 0 !important;
+            padding: 0 !important;
+            width: 100%;
+        }
+        
+        body {
+            margin: 0 !important;
+            padding: 0 !important;
+            width: 100%;
+            overflow-x: hidden;
+            min-height: max(884px, 100dvh);
+        }
+
+        .gradient-text {
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            background-image: linear-gradient(to right, #F97316, #FB923C);
+        }
+
+        /* Carousel Animation */
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .carousel-track {
+            display: flex;
+            width: calc(250px * 14);
+            /* 7 images * 2 to seamless loop * 250px width approximation */
+            animation: scroll 40s linear infinite;
+        }
+
+        .carousel-track:hover {
+            animation-play-state: paused;
+        }
+
+        .carousel-item {
+            width: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 2rem;
+        }
+
+        .carousel-item img {
+            max-height: 80px;
+            max-width: 100%;
+            object-fit: contain;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Gradient overlays for smooth fade on edges */
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .carousel-container::before,
+        .carousel-container::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            width: 15%;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .carousel-container::before {
+            left: 0;
+            background: linear-gradient(to right, rgba(243, 244, 246, 1) 0%, rgba(243, 244, 246, 0) 100%);
+        }
+
+        .carousel-container::after {
+            right: 0;
+            background: linear-gradient(to left, rgba(243, 244, 246, 1) 0%, rgba(243, 244, 246, 0) 100%);
+        }
+
+        .dark .carousel-container::before {
+            background: linear-gradient(to right, rgba(30, 41, 59, 1) 0%, rgba(30, 41, 59, 0) 100%);
+        }
+
+        .dark .carousel-container::after {
+            background: linear-gradient(to left, rgba(30, 41, 59, 1) 0%, rgba(30, 41, 59, 0) 100%);
+        }
+    </style>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark font-sans transition-colors duration-300">
+    <div
+        class="bg-red-600 dark:bg-red-700 text-white text-center py-2 px-4 text-sm sm:text-base font-bold relative z-40 shadow-sm transition-colors duration-300">
+        <i class="fa-solid fa-triangle-exclamation mr-1"></i> Emergency 24/7 Plumbing Service: <a href="tel:+15063155061"
+            class="underline hover:text-gray-200 tracking-wide">Call Now +1 506-315-5061</a> <i class="fa-solid fa-triangle-exclamation ml-1"></i>
+    </div>
+    <nav id="main-nav"
+        class="fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-surface-dark/95 backdrop-blur-sm border-b border-gray-200 dark:border-gray-700 shadow-sm opacity-0 -translate-y-full pointer-events-none transition-all duration-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="flex items-center gap-2 group">
+                        <img src="https://assets.cdn.filesafe.space/ptsfKyPFZVchbY968oQQ/media/699e6ab35dfd5067d9ff2d4c.webp"
+                            alt="NB Plumber Joe Logo"
+                            class="h-10 w-10 sm:h-14 sm:w-14 overflow-hidden rounded-full bg-secondary border-2 border-primary object-cover group-hover:scale-105 transition-transform">
+                        <span
+                            class="font-display font-bold text-lg sm:text-lg md:text-xl text-secondary dark:text-white tracking-tight sm:tracking-normal whitespace-nowrap">NB
+                            Plumber Joe</span>
+                    </a>
+                </div>
+                <div class="flex items-center md:hidden">
+                    <button
+                        class="text-gray-500 dark:text-gray-300 hover:text-primary focus:outline-none p-2 rounded-md"
+                        onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" type="button">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+                <div class="hidden md:flex flex-1 justify-center space-x-8 items-center">
+                    <a class="text-gray-700 dark:text-gray-200 hover:text-primary font-medium"
+                        href="index.html">Home</a>
+                    <div class="relative group">
+                        <button
+                            class="text-gray-700 dark:text-gray-200 hover:text-primary font-medium flex items-center gap-1">
+                            About <i class="fa-solid fa-chevron-down text-xs"></i>
+                        </button>
+                        <div
+                            class="absolute left-0 mt-2 w-48 before:absolute before:-top-4 before:left-0 before:w-full before:h-4 bg-white dark:bg-surface-dark rounded-md shadow-lg py-1 border border-gray-200 dark:border-gray-700 hidden group-hover:block">
+                            <a class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                href="team.html">Our Team</a>
+                            <a class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                href="guarantee.html">Guarantee</a>
+                            <a class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                href="about.html">About & FAQ</a>
+                        </div>
+                    </div>
+                    <a class="text-gray-700 dark:text-gray-200 hover:text-primary font-medium"
+                        href="services.html">Services</a>
+                    <a class="text-gray-700 dark:text-gray-200 hover:text-primary font-medium" href="tips.html">Joe's
+                        Plumbing Tips</a>
+                </div>
+                <div class="hidden md:flex flex-shrink-0">
+                    <a class="bg-primary hover:bg-orange-600 text-white px-6 py-2 rounded-full font-bold shadow-glow transition-all"
+                        href="contact.html">Contact Us</a>
+                </div>
+            </div>
+        </div>
+        <div class="md:hidden bg-white dark:bg-surface-dark border-b border-gray-200 dark:border-gray-700 hidden"
+            id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800"
+                    href="index.html">Home</a>
+                <a class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800"
+                    href="about.html">About & FAQ</a>
+                <a class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800"
+                    href="team.html">Our Team</a>
+                <a class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800"
+                    href="guarantee.html">Guarantee</a>
+                <a class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800"
+                    href="services.html">Services</a>
+                <a class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800"
+                    href="tips.html">Tips</a>
+                <a class="block px-3 py-2 rounded-md text-base font-bold text-primary" href="contact.html">Contact</a>
+            </div>
+        </div>
+    </nav>
+    <header class="relative bg-secondary overflow-hidden min-h-screen flex items-center justify-center">
+        <div class="absolute inset-0 z-0">
+            <video autoplay loop muted playsinline class="w-full h-full object-cover">
+                <source src="https://assets.cdn.filesafe.space/ptsfKyPFZVchbY968oQQ/media/69a0ff249a0c18d5103727aa.mp4"
+                    type="video/mp4">
+            </video>
+            <div class="absolute inset-0 bg-secondary/70 dark:bg-background-dark/80"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-20 w-full mt-10">
+            <div class="text-center max-w-4xl mx-auto">
+                <span
+                    class="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-primary/90 text-white text-sm font-bold mb-6 border border-white/20 shadow-lg backdrop-blur-md transform hover:scale-105 transition">
+                    <i class="fa-solid fa-location-dot"></i> Serving Saint John, NB
+                </span>
+                <h1
+                    class="text-5xl md:text-6xl lg:text-7xl font-display font-extrabold text-white leading-tight mb-6 drop-shadow-xl">
+                    Reliable Plumbing, <br class="hidden md:block" />
+                    <span class="text-primary drop-shadow-lg">Done Right The First Time.</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-200 mb-10 drop-shadow-md">
+                    NB Plumber Joe is your trusted local expert for repairs, installations, and emergency services.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6">
+                    <a class="bg-primary hover:bg-orange-600 text-white text-xl font-bold px-8 py-4 rounded-xl shadow-glow transform transition hover:-translate-y-1 flex items-center justify-center gap-3"
+                        href="contact.html">
+                        <i class="fa-solid fa-calendar-check text-2xl"></i> Book an Appointment
+                    </a>
+                    <a class="bg-white/10 hover:bg-white/20 text-white text-xl font-bold px-8 py-4 rounded-xl backdrop-blur-md border border-white/30 transition hover:bg-white/30 flex items-center justify-center gap-3"
+                        href="sms:+15063155061">
+                        <i class="fa-solid fa-comment-sms text-2xl"></i> Text +1 506-315-5061
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="bg-gray-100 dark:bg-surface-dark border-y border-gray-200 dark:border-gray-700 py-6">
+        <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 overflow-hidden">
+            <p class="text-center text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-8">
+                Trusted By Local Businesses</p>
+
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <div class="carousel-item"><img
+                            src="https://assets.cdn.filesafe.space/ptsfKyPFZVchbY968oQQ/media/69a102ac524b71cc4c14a4fa.png"
+                            alt="Client Logo 1"></div>
+                    <div class="carousel-item"><img
+                            src="https://assets.cdn.filesafe.space/ptsfKyPFZVchbY968oQQ/media/69a102acbee5059e149d8dc6.jpg"
+                            alt="Client Logo 2"></div>
+                    <div class="carousel-item"><img
+                            src="https://assets.cdn.filesafe.space/ptsfKyPFZVchbY968oQQ/media/69a102ac95735ccf1d67ffc9.webp"
+                            alt="Client Logo 3"></div>
+                    <div class="carousel-item"><img
+                            src="https://assets.cdn.filesafe.space/ptsfKyPFZVchbY968oQQ/media/69a102ac753f157e9e98d656.png"
+                            alt="Client Logo 4"></div>
+                    <div class="carousel-item"><img
+                            src="https://assets.cdn.filesafe.space/ptsfKyPFZVchbY968oQQ/media/69a102ac9a0c185d13388bb7.webp"
+                            alt="Client Logo 5"></div>
+                    <div class="carousel-item"><img
+                            src="https://assets.cdn.filesafe.space/ptsfKyPFZVchbY968oQQ/media/69a102ac753f15009498d657.jpg"
+                            alt="Client Logo 6"></div>
+                    <div class="carousel-item"><img
+                            src="https://assets.cdn.filesafe.space/ptsfKyPFZVchbY968oQQ/media/69a102ac753f15245a98d658.webp"
+                            alt="Client Logo 7"></div>
+
+                    <div class="carousel-item"><img
+                            src="https://assets.cdn.filesafe.space/ptsfKyPFZVchbY968oQQ/media/69a102ac524b71cc4c14a4fa.png"
+                            alt="Client Logo 1"></div>
+                    <div class="carousel-item"><img
+                            src="https://assets.cdn.filesafe.space/ptsfKyPFZVchbY968oQQ/media/69a102acbee5059e149d8dc6.jpg"
+                            alt="Client Logo 2"></div>
+                    <div class="carousel-item"><img
+                            src="https://assets.cdn.filesafe.space/ptsfKyPFZVchbY968oQQ/media/69a102ac95735ccf1d67ffc9.webp"
+                            alt="Client Logo 3"></div>
+                    <div class="carousel-item"><img
+                            src="https://assets.cdn.filesafe.space/ptsfKyPFZVchbY968oQQ/media/69a102ac753f157e9e98d656.png"
+                            alt="Client Logo 4"></div>
+                    <div class="carousel-item"><img
+                            src="https://assets.cdn.filesafe.space/ptsfKyPFZVchbY968oQQ/media/69a102ac9a0c185d13388bb7.webp"
+                            alt="Client Logo 5"></div>
+                    <div class="carousel-item"><img
+                            src="https://assets.cdn.filesafe.space/ptsfKyPFZVchbY968oQQ/media/69a102ac753f15009498d657.jpg"
+                            alt="Client Logo 6"></div>
+                    <div class="carousel-item"><img
+                            src="https://assets.cdn.filesafe.space/ptsfKyPFZVchbY968oQQ/media/69a102ac753f15245a98d658.webp"
+                            alt="Client Logo 7"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="py-16 bg-background-light dark:bg-background-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-display font-bold text-secondary dark:text-white mb-4">Our Premium
+                    Services</h2>
+                <div class="h-1 w-20 bg-primary mx-auto rounded-full"></div>
+                <p class="mt-4 text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">From leaky faucets to major sewer
+                    line repairs, our expert team handles it all with precision and care.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div
+                    class="bg-white dark:bg-surface-dark rounded-xl shadow-soft hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-gray-100 dark:border-gray-700 group">
+                    <div class="h-48 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-primary/10 group-hover:bg-primary/0 transition-colors z-10">
+                        </div>
+                        <img alt="General Plumbing Tools"
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXWlJQfXnT5HpBkMcOWIb4f2aXJgbw7YWwl5E1_3-ZEk41t8Awdnp6yZJwat-Et9O5T0twLqThHE-mGP1VvuTAHXHY_Gmt14edIrHuSAAmpuixTVmBGx4DZb5IR3bN8nC5tRHpQYXONBv3DpAWMyBfDp3zuHMVh4On30-Ah8l5pn-KXFzcOmjRFJVEJTKncj9TSc6isddyqkI6BQ2LtrjFNDEA77inuHudYxBa4ZKB05gAKoVAGCYGiBnZkDlb1-3Y-qFgs3Jvk9-u" />
+                    </div>
+                    <div class="p-6">
+                        <div
+                            class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center mb-4 text-blue-600 dark:text-blue-400">
+                            <i class="fa-solid fa-faucet text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-secondary dark:text-white mb-2">General Plumbing</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4 text-sm">Leaks, repairs, and installations for
+                            all your home's water systems.</p>
+                        <a class="text-primary font-bold text-sm hover:underline flex items-center"
+                            href="services.html">Learn More
+                            <i class="fa-solid fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+                <div
+                    class="bg-white dark:bg-surface-dark rounded-xl shadow-soft hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-gray-100 dark:border-gray-700 group">
+                    <div class="h-48 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-primary/10 group-hover:bg-primary/0 transition-colors z-10">
+                        </div>
+                        <img alt="Main Sewer Line"
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKeCvh73qHfvAT5TN18AtELGJAYOLAlelbsYdmDZCqMdxGULTvnNONeFSeEF3-ejcmfFwEdcfoJz0PCRYY2fU4TwaSIK72eAgTtl6nT6bK4mgM7XynG_dJQECZnfpj52XU7ihIuNg2kCcSfvtjY0wplTumXFL0AOfjS5bnJyQRWoz51f6w37pihLxqpjPc-dPNM3b0lb276IpSR-HOsE4-XYCqPQiN4kQ7BV_XEzWCnyYFIg6uoWkb5Yb7l951aQKOkaI9EXzkWdqt" />
+                    </div>
+                    <div class="p-6">
+                        <div
+                            class="w-12 h-12 bg-orange-100 dark:bg-orange-900/30 rounded-lg flex items-center justify-center mb-4 text-primary">
+                            <i class="fa-solid fa-road text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-secondary dark:text-white mb-2">Main Sewer Line</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4 text-sm">Video inspection and repair of main
+                            lines to prevent backups.</p>
+                        <a class="text-primary font-bold text-sm hover:underline flex items-center"
+                            href="services.html">Learn More
+                            <i class="fa-solid fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+                <div
+                    class="bg-white dark:bg-surface-dark rounded-xl shadow-soft hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-gray-100 dark:border-gray-700 group">
+                    <div class="h-48 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-primary/10 group-hover:bg-primary/0 transition-colors z-10">
+                        </div>
+                        <img alt="Kitchen Sink"
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCnd1Fdcli_Tz6u4pbIgfupIbpVnAyVCqEM6zhSRvXjBbdYxxKvcF_PNHzy7CRvP3d3jU3tbMwWxjngs4-IXc56UiVv94bJxRvQ7RoQeZ4wKCjsCO2-t-3JzQCWo-a6dpEHwFkzkP8wO1NNmTQKLhtwgLnHc4V5RbvyXUiBAwSIpmDfTl0r6cWR_A6HmnDMjRpDk6WXDLP2zOH52Z_ZzfvyAICuBU9wK7yLJt6HQfLPeINnprwF1xSrcPomNk2ikse7Sye2E76dXD-" />
+                    </div>
+                    <div class="p-6">
+                        <div
+                            class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center mb-4 text-blue-600 dark:text-blue-400">
+                            <i class="fa-solid fa-sink text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-secondary dark:text-white mb-2">Kitchen Sink Drains</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4 text-sm">Unclogging grease traps and fixing slow
+                            draining sinks efficiently.</p>
+                        <a class="text-primary font-bold text-sm hover:underline flex items-center"
+                            href="services.html">Learn More
+                            <i class="fa-solid fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+                <div
+                    class="bg-white dark:bg-surface-dark rounded-xl shadow-soft hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-gray-100 dark:border-gray-700 group">
+                    <div class="h-48 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-primary/10 group-hover:bg-primary/0 transition-colors z-10">
+                        </div>
+                        <img alt="Drain Line"
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFfD6Wlvi6td6OSPTvPRNEFVbW7xinemYjA9WteuohcaX7n9c5YDvgClMOLazFsZQ1wKxlbpkfahzWISG_5n90awdpnf9OW31CULaQxItnpNApmRetnLOWpG7si5hyEROuHEBmKQgf-hHblbqm8FiqlNf2ff9WH-u6mvZVCxOhuzphWM3RUEfuE9Vj-CheGK9jvYIxyD-aVYheHX0kMl9UW2IQges2ByPojodTsn6PSd2Ra5UPfQrzc7ChFsEdd9VTbIObxjFK8r3Q" />
+                    </div>
+                    <div class="p-6">
+                        <div
+                            class="w-12 h-12 bg-orange-100 dark:bg-orange-900/30 rounded-lg flex items-center justify-center mb-4 text-primary">
+                            <i class="fa-solid fa-toilet text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-secondary dark:text-white mb-2">Common Drain Lines</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4 text-sm">Solutions for bathtubs, showers, and
+                            laundry drain blockages.</p>
+                        <a class="text-primary font-bold text-sm hover:underline flex items-center"
+                            href="services.html">Learn More
+                            <i class="fa-solid fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+                <div
+                    class="bg-white dark:bg-surface-dark rounded-xl shadow-soft hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-gray-100 dark:border-gray-700 group">
+                    <div class="h-48 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-primary/10 group-hover:bg-primary/0 transition-colors z-10">
+                        </div>
+                        <img alt="Excavation"
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwfbssmv58R7dDrUeqsz6Chc-Ppx-wTXwNgQmcsCLxlD9G_CVkX_E-IEz2YqOGoAHbFLwSuMFqxYuziLX-XTUzf2-ZDPC4tINgK4gHMHFH9AqBRRIpM1VPYALBWhF1-HjX0Y2MWplqa7hdjtgSbTH38Z7YazUdbDe60aF0bMFm9o8Y0g71F5QAt9GwJtP68UwrH5terfW_QV4sx4N5qP2rA-E4EnPE5o252aI7yLhsZh9_na_8RSq6Yd3KkhoGZHRBFV1hVadcNfPQ" />
+                    </div>
+                    <div class="p-6">
+                        <div
+                            class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center mb-4 text-blue-600 dark:text-blue-400">
+                            <i class="fa-solid fa-trowel-bricks text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-secondary dark:text-white mb-2">Underground Repairs</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4 text-sm">Professional excavation for deep pipe
+                            repairs and replacements.</p>
+                        <a class="text-primary font-bold text-sm hover:underline flex items-center"
+                            href="services.html">Learn More
+                            <i class="fa-solid fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+                <div
+                    class="bg-white dark:bg-surface-dark rounded-xl shadow-soft hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-gray-100 dark:border-gray-700 group">
+                    <div class="h-48 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-primary/10 group-hover:bg-primary/0 transition-colors z-10">
+                        </div>
+                        <img alt="Smoke Test"
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_MlZ7k3wh_m1cj6sQrZDfexkc-r9-POK8VADh4BmhrCQMgpCnwihEYX5X3njudiBPm4Ik49bypDQv2oco34i4rMZGAML5ignsPz-E8oDEexBLq0rMuAcWR9pESfV7DL0nKMiFQ0Z3FOgQBjXJ2Y8CnYElNwJqv8PL1w28ik1tJX1qmugI3XuR-iigdHI1wijJxXJb_LmlD41RGckxniW_PoubFfggCRrf3tfjymGcQAcYajojEt7R5dIKV6zXawN2BJ1cWosSWLTu" />
+                    </div>
+                    <div class="p-6">
+                        <div
+                            class="w-12 h-12 bg-orange-100 dark:bg-orange-900/30 rounded-lg flex items-center justify-center mb-4 text-primary">
+                            <i class="fa-solid fa-wind text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-secondary dark:text-white mb-2">Sewer Odor Detection</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4 text-sm">Advanced smoke testing to locate and
+                            eliminate dangerous gas leaks.</p>
+                        <a class="text-primary font-bold text-sm hover:underline flex items-center"
+                            href="services.html">Learn More
+                            <i class="fa-solid fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-16 bg-white dark:bg-surface-dark border-y border-gray-200 dark:border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-display font-bold text-secondary dark:text-white mb-8 text-center">Recent Work in
+                New Brunswick</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="relative group overflow-hidden rounded-lg aspect-square">
+                    <img alt="Bathroom installation"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjhekYMKGuOsweCq4REHBmijGpPmX4qU3UFwr4itBo_tRpXUhdbSyNXMbDypu8eJTxlxklyYYTLgke-6yfWODOkpJuhATSBZK7fl9HGR4OIyqHxhcpOS4UeVZVBJYuq8db-YmJamK0TG9CBJouF-PD8GtfCxaJS2U5YCejWi0rzk5hbuuDpCXyP4ZZHsDIVDyyHTK7ikFGRFIySGGXG6poT1T6ngMOTGkiDt3XOCukJ3fTf1T3GiMJkKyuGL7HIPsnw1E3hWSMWFYf" />
+                    <div
+                        class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white font-bold">
+                        Saint John</div>
+                </div>
+                <div class="relative group overflow-hidden rounded-lg aspect-square">
+                    <img alt="Kitchen plumbing"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqTcPebLYvJLRkV7U9n1lVi_srarusj00xTq4N3eGu0st0rPGUkb0nYXFlfSbv2LfdovwfYyBKhvYypzI8TnyVmUa5URYlk89ZpOrrEWpqsHvcPD7tEb_Bt9xyq6aOcfuQZ_O4Heo-TODMfY2T3PSLpDFLm28FBFxMG6mYdoUIKRcAe17FyyZ9R9qnf7mpVXr_JflGmqiqjnuoKQkET5gjsAeTxDTZNTTPb5XmBAfRNgXm96L7PZGqua_4uLxSUt4c-tULeHFK_MN5" />
+                    <div
+                        class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white font-bold">
+                        Rothesay</div>
+                </div>
+                <div class="relative group overflow-hidden rounded-lg aspect-square">
+                    <img alt="Pipe replacement"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCu2A71jpqcOZyBqulUE0Ntm9W9YieXPt2cvOYi3OFzPwKqAmdvMIGW6ZWJvgPrIUVTDcUYcQVBLpK-uTj3Nf37oAMXIXOdJPT2zmb0yJ2HgTMJWkiBWTvluKF8BIqqRm4PeN9FvcN2su8L4-WFNpAlE7KRI2befg1iPXQ0TN1pQkAUqNJJ7CDygfiDDAHdnKKOEcAVtQbv1otBdfcjKPKXElXFROs0logcw391_1Za4lsykeDSBHC1lJqhO1HknOM0uoy-3VGZZPHy" />
+                    <div
+                        class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white font-bold">
+                        Quispamsis</div>
+                </div>
+                <div class="relative group overflow-hidden rounded-lg aspect-square">
+                    <img alt="Water heater"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlH5D1SlitKGTO_b9asCXHqWSGzOixsj4LndbMageLkUhK5Gk0N_kRhSN2-6KrGVcz7S1lXDAlMnetnFCT-z7hNg5IdRYtYAQiOIY9SNnRlMU2R8GeXeZ792C8eIxvi609Taf4nQDmsntei45yTXlXbRm7rsICGdO4o6kOqcXsLnCz8sJGaLrn2tcSR878LoM6bti30uNDITWs_O_JFYcocRh5s-M7CPAQyl7_7ngs-lfJpHQcRG8vXmLANpgcXMZJwrFh203NRy7q" />
+                    <div
+                        class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white font-bold">
+                        Grand Bay</div>
+                </div>
+            </div>
+            <div class="text-center mt-8">
+                <a class="inline-flex items-center text-primary font-bold hover:text-orange-600" href="#">View Full
+                    Project Gallery <i class="fa-solid fa-arrow-right ml-2"></i></a>
+            </div>
+        </div>
+    </section>
+    <section class="py-16 bg-secondary text-white relative overflow-hidden" id="contact">
+        <div class="absolute top-0 right-0 -mt-20 -mr-20 w-64 h-64 bg-primary/20 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 -mb-20 -ml-20 w-80 h-80 bg-blue-500/20 rounded-full blur-3xl"></div>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div
+                class="bg-surface-light dark:bg-surface-dark rounded-2xl shadow-2xl p-6 md:p-10 border border-gray-200 dark:border-gray-700">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-display font-bold text-secondary dark:text-white mb-2">Get A Free Quote
+                        Today!</h2>
+                    <p class="text-gray-600 dark:text-gray-300">Fast response times. Upfront pricing. No hidden fees.
+                    </p>
+                </div>
+
+                <div class="w-full">
+                    <iframe
+                        src="https://api.leadconnectorhq.com/widget/bookings/bookwithusplumbing-edf386f1-22be-44d3-833e-11586a47ca2b"
+                        style="width:100%;border:none;border-radius:3px" id="booking-widget" scrolling="no"
+                        title="Book a Plumbing Appointment">
+                    </iframe>
+                    <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-secondary text-gray-300 relative overflow-hidden pt-20 border-t border-gray-800">
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
+
+                <div class="lg:col-span-5 pr-0 lg:pr-12">
+                    <a href="index.html" class="flex items-center gap-3 group mb-6">
+                        <img src="https://assets.cdn.filesafe.space/ptsfKyPFZVchbY968oQQ/media/699e6ab35dfd5067d9ff2d4c.webp"
+                            alt="NB Plumber Joe Logo"
+                            class="h-12 w-12 overflow-hidden rounded-full bg-secondary border-2 border-primary object-cover group-hover:scale-105 transition-transform">
+                        <span class="font-display font-bold text-2xl text-white tracking-tight">NB Plumber Joe</span>
+                    </a>
+                    <p class="text-gray-400 mb-8 max-w-md leading-relaxed">
+                        NB Plumber Joe makes plumbing repairs continuous and scalable for thousands of homeowners and
+                        businesses worldwide.
+                    </p>
+
+                    <div class="flex gap-4 mb-8">
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white text-secondary flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+                            <i class="fa-brands fa-twitter text-lg"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white text-secondary flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+                            <i class="fa-brands fa-facebook-f text-lg"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white text-secondary flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+                            <i class="fa-brands fa-instagram text-lg"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white text-secondary flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+                            <i class="fa-brands fa-youtube text-lg"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white text-secondary flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+                            <i class="fa-brands fa-linkedin-in text-lg"></i>
+                        </a>
+                    </div>
+
+                    <div>
+                        <p class="text-sm text-gray-400 mb-3">See our glowing reviews on</p>
+                        <div class="flex items-center gap-6">
+                            <div class="flex items-center gap-2 text-white font-bold text-lg">
+                                <i class="fa-brands fa-google text-2xl"></i> Google
+                            </div>
+                            <div class="flex items-center gap-2 text-white font-bold text-lg">
+                                <i class="fa-brands fa-yelp text-2xl text-red-500"></i> Yelp
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-2 lg:col-start-7">
+                    <h3 class="text-gray-500 font-semibold mb-6 tracking-wide">Services</h3>
+                    <ul class="space-y-4 text-sm font-medium text-gray-400">
+                        <li><a href="services.html#general-plumbing"
+                                class="hover:text-primary transition-colors">General Plumbing</a></li>
+                        <li><a href="services.html#main-sewer-line" class="hover:text-primary transition-colors">Main
+                                Sewer Line</a></li>
+                        <li><a href="services.html#kitchen-sink-drains"
+                                class="hover:text-primary transition-colors">Kitchen Sink Drains</a></li>
+                        <li><a href="services.html#common-drain-lines"
+                                class="hover:text-primary transition-colors">Common Drain Lines</a></li>
+                        <li><a href="services.html#underground-repairs"
+                                class="hover:text-primary transition-colors">Underground Repairs</a></li>
+                        <li><a href="services.html#sewer-odor-detection"
+                                class="hover:text-primary transition-colors">Sewer Odor Detection</a></li>
+                    </ul>
+                </div>
+
+                <div class="lg:col-span-2">
+                    <h3 class="text-gray-500 font-semibold mb-6 tracking-wide">Company</h3>
+                    <ul class="space-y-4 text-sm font-medium text-gray-400">
+                        <li><a href="about.html" class="hover:text-primary transition-colors">About</a></li>
+                        <li><a href="team.html" class="hover:text-primary transition-colors">Our Team</a></li>
+                        <li><a href="guarantee.html" class="hover:text-primary transition-colors">Guarantee</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Careers</a></li>
+                        <li><a href="contact.html" class="hover:text-primary transition-colors">Contact us</a></li>
+                    </ul>
+                </div>
+
+                <div class="lg:col-span-2">
+                    <h3 class="text-gray-500 font-semibold mb-6 tracking-wide">Resources</h3>
+                    <ul class="space-y-4 text-sm font-medium text-gray-400">
+                        <li><a href="tips.html" class="hover:text-primary transition-colors">Plumbing Tips</a></li>
+                        <li><a href="about.html" class="hover:text-primary transition-colors">FAQ Articles</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Maintenance Guide</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Emergency Info</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Service Areas</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="flex justify-center mb-6">
+                <i class="fa-solid fa-chevron-down text-gray-500 text-2xl"></i>
+            </div>
+        </div>
+
+        <div class="bg-surface-dark/60 rounded-t-[2.5rem] mt-4 relative z-10 backdrop-blur-sm shadow-xl">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400">
+                    <p>Copyright � 2026 NB Plumber Joe, Inc. All Rights Reserved.</p>
+                    <div class="flex flex-wrap justify-center gap-8 font-medium">
+                        <a href="privacy.html" class="hover:text-white transition-colors">Privacy Policy</a>
+                        <a href="terms.html" class="hover:text-white transition-colors">Terms of Service</a>
+                        <a href="#" class="hover:text-white transition-colors">Report an Issue</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const nav = document.getElementById('main-nav');
+            const handleScroll = () => {
+                if (window.scrollY > 100) {
+                    nav.classList.remove('opacity-0', '-translate-y-full', 'pointer-events-none');
+                    nav.classList.add('opacity-100', 'translate-y-0');
+                } else {
+                    nav.classList.add('opacity-0', '-translate-y-full', 'pointer-events-none');
+                    nav.classList.remove('opacity-100', 'translate-y-0');
+                }
+            };
+            window.addEventListener('scroll', handleScroll, { passive: true });
+            // Trigger once to ensure correct initial state
+            handleScroll();
+        });
+    </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const animateElements = document.querySelectorAll('header > div, section, main > div > div, .bg-white.rounded-3xl, .bg-card-light');
+            let delay = 0;
+            animateElements.forEach((el) => {
+                if (!el.hasAttribute('data-aos') && !el.closest('nav') && !el.closest('#mobile-menu') && !el.closest('.carousel-track')) {
+                    el.setAttribute('data-aos', 'fade-up');
+                    el.setAttribute('data-aos-delay', delay);
+                    delay = (delay + 100) % 400; // stagger 0, 100, 200, 300
+                }
+            });
+
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 50,
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const nav = document.getElementById('main-nav');
+            const footer = document.querySelector('footer');
+            if (!nav || !footer) return;
+
+            // Multiple thresholds for smooth detection
+            const thresholds = Array.from({ length: 21 }, (_, i) => i / 20);
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const isMobile = window.innerWidth < 768;
+                    const thresholdRequired = isMobile ? 0.2 : 0.8;
+
+                    if (entry.intersectionRatio > thresholdRequired) {
+                        nav.style.setProperty('transform', 'translateY(-100%)', 'important');
+                        nav.style.setProperty('opacity', '0', 'important');
+                        nav.style.setProperty('pointer-events', 'none', 'important');
+                        nav.style.setProperty('transition', 'all 0.3s ease-in-out', 'important');
+                    } else {
+                        nav.style.removeProperty('transform');
+                        nav.style.removeProperty('opacity');
+                        nav.style.removeProperty('pointer-events');
+                        nav.style.removeProperty('transition');
+                    }
+                });
+            }, { threshold: thresholds });
+
+            observer.observe(footer);
+        });
+    </script>
+</body>
+
+</html>

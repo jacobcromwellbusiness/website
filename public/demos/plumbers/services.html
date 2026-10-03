@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Our Services - NB Plumber Joe</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Montserrat:wght@600;700;800&display=swap"
+        rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#F97316", // Orange from logo
+                        secondary: "#0F172A", // Deep Navy from logo
+                        "background-light": "#F8FAFC",
+                        "background-dark": "#0F172A",
+                        "surface-light": "#FFFFFF",
+                        "surface-dark": "#1E293B",
+                        "text-light": "#334155",
+                        "text-dark": "#E2E8F0",
+                    },
+                    fontFamily: {
+                        sans: ['Roboto', 'sans-serif'],
+                        display: ['Montserrat', 'sans-serif'],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.5rem",
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+                        'glow': '0 0 15px rgba(249, 115, 22, 0.3)',
+                    }
+                },
+            },
+        };
+    </script>
+    <style>
+        html, body {
+            margin: 0 !important;
+            padding: 0 !important;
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        .gradient-text {
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            background-image: linear-gradient(to right, #F97316, #FB923C);
+        }
+
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark font-sans transition-colors duration-300">
+    <div
+        class="bg-red-600 dark:bg-red-700 text-white text-center py-2 px-4 text-sm sm:text-base font-bold relative z-40 shadow-sm transition-colors duration-300">
+        <i class="fa-solid fa-triangle-exclamation mr-1"></i> Emergency 24/7 Plumbing Service: 
+        <a href="tel:+15063155061" class="underline hover:text-gray-200 tracking-wide">Call +1 506-315-5061</a> 
+        <i class="fa-solid fa-triangle-exclamation ml-1"></i>
+    </div>
+
+    <nav id="main-nav"
+        class="sticky top-0 z-50 bg-white/95 dark:bg-surface-dark/95 backdrop-blur-sm border-b border-gray-200 dark:border-gray-700 shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="flex items-center gap-2 group">
+                        <img src="https://assets.cdn.filesafe.space/ptsfKyPFZVchbY968oQQ/media/699e6ab35dfd5067d9ff2d4c.webp"
+                            alt="NB Plumber Joe Logo"
+                            class="h-10 w-10 sm:h-14 sm:w-14 overflow-hidden rounded-full bg-secondary border-2 border-primary object-cover group-hover:scale-105 transition-transform">
+                        <span
+                            class="font-display font-bold text-lg sm:text-lg md:text-xl text-secondary dark:text-white tracking-tight sm:tracking-normal whitespace-nowrap">NB
+                            Plumber Joe</span>
+                    </a>
+                </div>
+                <div class="flex items-center md:hidden">
+                    <button
+                        class="text-gray-500 dark:text-gray-300 hover:text-primary focus:outline-none p-2 rounded-md"
+                        onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" type="button">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+                <div class="hidden md:flex flex-1 justify-center space-x-8 items-center">
+                    <a class="text-gray-700 dark:text-gray-200 hover:text-primary font-medium"
+                        href="index.html">Home</a>
+                    <div class="relative group">
+                        <button
+                            class="text-gray-700 dark:text-gray-200 hover:text-primary font-medium flex items-center gap-1">
+                            About <i class="fa-solid fa-chevron-down text-xs"></i>
+                        </button>
+                        <div
+                            class="absolute left-0 mt-2 w-48 before:absolute before:-top-4 before:left-0 before:w-full before:h-4 bg-white dark:bg-surface-dark rounded-md shadow-lg py-1 border border-gray-200 dark:border-gray-700 hidden group-hover:block">
+                            <a class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                href="team.html">Our Team</a>
+                            <a class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                href="guarantee.html">Guarantee</a>
+                            <a class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                href="about.html">About & FAQ</a>
+                        </div>
+                    </div>
+                    <a class="text-gray-700 dark:text-gray-200 hover:text-primary font-medium"
+                        href="services.html">Services</a>
+                    <a class="text-gray-700 dark:text-gray-200 hover:text-primary font-medium" href="tips.html">Joe's
+                        Plumbing Tips</a>
+                </div>
+                <div class="hidden md:flex flex-shrink-0">
+                    <a class="bg-primary hover:bg-orange-600 text-white px-6 py-2 rounded-full font-bold shadow-glow transition-all"
+                        href="contact.html">Contact Us</a>
+                </div>
+            </div>
+        </div>
+        <div class="md:hidden bg-white dark:bg-surface-dark border-b border-gray-200 dark:border-gray-700 hidden"
+            id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800"
+                    href="index.html">Home</a>
+                <a class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800"
+                    href="about.html">About & FAQ</a>
+                <a class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800"
+                    href="team.html">Our Team</a>
+                <a class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800"
+                    href="guarantee.html">Guarantee</a>
+                <a class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800"
+                    href="services.html">Services</a>
+                <a class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800"
+                    href="tips.html">Tips</a>
+                <a class="block px-3 py-2 rounded-md text-base font-bold text-primary" href="contact.html">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative bg-secondary pt-32 pb-20 border-b border-gray-800">
+        <div
+            class="absolute inset-0 z-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1585704032915-c3400ca199e7?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center">
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-display font-extrabold text-white mb-6 drop-shadow-lg">
+                Comprehensive <span class="text-primary">Plumbing Solutions</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto drop-shadow-md">
+                From simple dripping faucets to complex underground sewer line replacements, our team has the tools,
+                training, and experience to handle any plumbing issue in your home or business.
+            </p>
+        </div>
+    </header>
+
+    <main class="py-12 bg-background-light dark:bg-background-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24">
+
+            <section class="flex flex-col lg:flex-row items-center gap-12" id="general-plumbing">
+                <div class="lg:w-1/2">
+                    <div
+                        class="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-xl flex items-center justify-center mb-6 text-blue-600 dark:text-blue-400">
+                        <i class="fa-solid fa-faucet-drip text-3xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-display font-bold text-secondary dark:text-white mb-4">General Plumbing
+                        Services</h2>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
+                        Your home's plumbing system is an intricate network that requires regular maintenance and prompt
+                        repairs to function efficiently. Our general plumbing services cover everything from fixture
+                        installations (toilets, sinks, and tubs) to repairing leaky pipes and addressing low water
+                        pressure.
+                    </p>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
+                        Ignoring a small drip or a constantly running toilet can lead to massive water bills and hidden
+                        structural damage over time. We utilize high-quality replacement parts to ensure that once a fix
+                        is made, it stands the test of time. Whether you're upgrading your bathroom hardware or need an
+                        emergency repair for a burst pipe, we arrive fully equipped to resolve the issue on the spot.
+                    </p>
+                    <ul class="space-y-2 text-sm font-medium text-gray-700 dark:text-gray-300">
+                        <li><i class="fa-solid fa-check text-primary mr-2"></i> Toilet repair and installation</li>
+                        <li><i class="fa-solid fa-check text-primary mr-2"></i> Faucet and fixture replacements</li>
+                        <li><i class="fa-solid fa-check text-primary mr-2"></i> Water heater maintenance</li>
+                    </ul>
+                </div>
+                <div
+                    class="lg:w-1/2 w-full rounded-2xl overflow-hidden shadow-xl border border-gray-200 dark:border-gray-700">
+                    <img src="https://assets.cdn.filesafe.space/ptsfKyPFZVchbY968oQQ/media/69a119759a0c18b10d47b7ee.png"
+                        alt="General Plumbing services" class="w-full h-full object-cover">
+                </div>
+            </section>
+
+            <section class="flex flex-col lg:flex-row-reverse items-center gap-12" id="main-sewer-line">
+                <div class="lg:w-1/2">
+                    <div
+                        class="w-16 h-16 bg-orange-100 dark:bg-orange-900/30 rounded-xl flex items-center justify-center mb-6 text-primary">
+                        <i class="fa-solid fa-road-barrier text-3xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-display font-bold text-secondary dark:text-white mb-4">Main Sewer Line
+                        Services</h2>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
+                        The main sewer line is the critical artery that carries all waste away from your home. When it
+                        backs up, it can cause catastrophic and unsanitary flooding in your lower levels. Clogs are
+                        often caused by flushable wipes, grease buildup, or invasive tree roots breaking through aging
+                        pipes.
+                    </p>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
+                        We don't just guess where the problem is. We utilize advanced fiber-optic video cameras to
+                        inspect the interior of your main sewer line, pinpointing the exact location and cause of the
+                        blockage. Depending on the diagnosis, we offer heavy-duty augering, hydro-jetting to blast away
+                        stubborn roots and scale, or targeted pipe repairs to restore optimal flow.
+                    </p>
+                    <ul class="space-y-2 text-sm font-medium text-gray-700 dark:text-gray-300">
+                        <li><i class="fa-solid fa-check text-primary mr-2"></i> High-definition video camera inspections
+                        </li>
+                        <li><i class="fa-solid fa-check text-primary mr-2"></i> Tree root removal and prevention</li>
+                        <li><i class="fa-solid fa-check text-primary mr-2"></i> High-pressure hydro-jetting</li>
+                    </ul>
+                </div>
+                <div
+                    class="lg:w-1/2 w-full rounded-2xl overflow-hidden shadow-xl border border-gray-200 dark:border-gray-700">
+                    <img src="https://assets.cdn.filesafe.space/ptsfKyPFZVchbY968oQQ/media/69a119e69a0c1857bb47dcad.png"
+                        alt="Main Sewer Line Services" class="w-full h-full object-cover">
+                </div>
+            </section>
+
+            <section class="flex flex-col lg:flex-row items-center gap-12" id="kitchen-sink-drains">
+                <div class="lg:w-1/2">
+                    <div
+                        class="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-xl flex items-center justify-center mb-6 text-blue-600 dark:text-blue-400">
+                        <i class="fa-solid fa-kitchen-set text-3xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-display font-bold text-secondary dark:text-white mb-4">Kitchen Sink Drains
+                    </h2>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
+                        Kitchen sinks endure more punishment than almost any other plumbing fixture in your home. Over
+                        time, fats, oils, grease (FOG), coffee grounds, and food particles congeal inside the pipes,
+                        creating stubborn, sticky blockages that chemical drain cleaners simply cannot break through
+                        safely.
+                    </p>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
+                        We specialize in dismantling and cleaning P-traps, safely augering the lateral lines that
+                        connect to your main drain, and repairing or replacing malfunctioning garbage disposals. Our
+                        methods are safe for your pipes and highly effective at eliminating the foul odors associated
+                        with a backed-up kitchen sink, restoring your kitchen to working order.
+                    </p>
+                    <ul class="space-y-2 text-sm font-medium text-gray-700 dark:text-gray-300">
+                        <li><i class="fa-solid fa-check text-primary mr-2"></i> Grease and food waste clearing</li>
+                        <li><i class="fa-solid fa-check text-primary mr-2"></i> Garbage disposal repair & replacement
+                        </li>
+                        <li><i class="fa-solid fa-check text-primary mr-2"></i> P-trap replacement and leak fixing</li>
+                    </ul>
+                </div>
+                <div
+                    class="lg:w-1/2 w-full rounded-2xl overflow-hidden shadow-xl border border-gray-200 dark:border-gray-700">
+                    <img src="https://assets.cdn.filesafe.space/ptsfKyPFZVchbY968oQQ/media/69a11b2fe9813128f80bcb41.png"
+                        alt="Kitchen Sink Drains" class="w-full h-full object-cover">
+                </div>
+            </section>
+
+            <section class="flex flex-col lg:flex-row-reverse items-center gap-12" id="common-drain-lines">
+                <div class="lg:w-1/2">
+                    <div
+                        class="w-16 h-16 bg-orange-100 dark:bg-orange-900/30 rounded-xl flex items-center justify-center mb-6 text-primary">
+                        <i class="fa-solid fa-bath text-3xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-display font-bold text-secondary dark:text-white mb-4">Common Drain Lines
+                    </h2>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
+                        Beyond the kitchen, your bathroom sinks, showers, bathtubs, and laundry room drains represent
+                        the "common lines" of your home's plumbing. These drains are highly susceptible to clogs forming
+                        from a combination of hair, soap scum, toothpaste, and hard water mineral buildup.
+                    </p>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
+                        Slow-draining tubs or bubbling sounds from the toilet when the washing machine runs are early
+                        warning signs of a restriction in your common lines. Using professional-grade drain snakes and
+                        specialized attachments, we clear these blockages completely rather than just punching a
+                        temporary hole through the muck, ensuring long-lasting drainage performance.
+                    </p>
+                    <ul class="space-y-2 text-sm font-medium text-gray-700 dark:text-gray-300">
+                        <li><i class="fa-solid fa-check text-primary mr-2"></i> Bathtub and shower hair clog removal
+                        </li>
+                        <li><i class="fa-solid fa-check text-primary mr-2"></i> Laundry line unblocking</li>
+                        <li><i class="fa-solid fa-check text-primary mr-2"></i> Multi-drain backup troubleshooting</li>
+                    </ul>
+                </div>
+                <div
+                    class="lg:w-1/2 w-full rounded-2xl overflow-hidden shadow-xl border border-gray-200 dark:border-gray-700">
+                    <img src="https://assets.cdn.filesafe.space/ptsfKyPFZVchbY968oQQ/media/69a11c1295735c7d907787c9.png"
+                        alt="Common Drain Lines" class="w-full h-full object-cover">
+                </div>
+            </section>
+
+            <section class="flex flex-col lg:flex-row items-center gap-12" id="underground-repairs">
+                <div class="lg:w-1/2">
+                    <div
+                        class="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-xl flex items-center justify-center mb-6 text-blue-600 dark:text-blue-400">
+                        <i class="fa-solid fa-person-digging text-3xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-display font-bold text-secondary dark:text-white mb-4">Underground Repairs
+                    </h2>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
+                        When pipes crack, collapse, or shift beneath the earth due to frost heaves, age, or heavy
+                        surface pressure, standard indoor plumbing techniques aren't enough. Underground repairs require
+                        specialized knowledge, heavy equipment, and a commitment to safety and local building codes.
+                    </p>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
+                        Whether you need a full excavation to replace a collapsed cast-iron main or spot-repairs to fix
+                        a specific bellied pipe holding water, we handle the entire process. We locate public utilities
+                        prior to digging, manage the excavation safely, execute precise plumbing repairs using modern
+                        PVC or ABS piping, and backfill the trench to restore your property.
+                    </p>
+                    <ul class="space-y-2 text-sm font-medium text-gray-700 dark:text-gray-300">
+                        <li><i class="fa-solid fa-check text-primary mr-2"></i> Trenching and excavation services</li>
+                        <li><i class="fa-solid fa-check text-primary mr-2"></i> Collapsed or bellied pipe replacement
+                        </li>
+                        <li><i class="fa-solid fa-check text-primary mr-2"></i> Water service line repair</li>
+                    </ul>
+                </div>
+                <div
+                    class="lg:w-1/2 w-full rounded-2xl overflow-hidden shadow-xl border border-gray-200 dark:border-gray-700">
+                    <img src="https://assets.cdn.filesafe.space/ptsfKyPFZVchbY968oQQ/media/69a11c989a0c184ff948b762.png"
+                        alt="Underground Repairs" class="w-full h-full object-cover">
+                </div>
+            </section>
+
+            <section class="flex flex-col lg:flex-row-reverse items-center gap-12" id="sewer-odor-detection">
+                <div class="lg:w-1/2">
+                    <div
+                        class="w-16 h-16 bg-orange-100 dark:bg-orange-900/30 rounded-xl flex items-center justify-center mb-6 text-primary">
+                        <i class="fa-solid fa-wind text-3xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-display font-bold text-secondary dark:text-white mb-4">Sewer Odor Detection
+                    </h2>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
+                        A persistent smell of rotten eggs in your home isn't just an annoyance; it's a potential
+                        health
+                        hazard. Sewer gas contains methane and hydrogen sulfide, which can enter your living space
+                        through cracked pipes, unsealed joints, dry P-traps, or broken wax rings under toilets.
+                    </p>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
+                        Because these leaks are often invisible and hidden behind walls or under floors, traditional
+                        inspections may fail to find them. We utilize advanced smoke testing equipment. By pumping
+                        non-toxic, highly visible smoke into your plumbing system, we can instantly visually identify
+                        the exact source of the leak as the smoke escapes into the room, allowing us to make a targeted,
+                        permanent repair.
+                    </p>
+                    <ul class="space-y-2 text-sm font-medium text-gray-700 dark:text-gray-300">
+                        <li><i class="fa-solid fa-check text-primary mr-2"></i> Non-toxic smoke testing</li>
+                        <li><i class="fa-solid fa-check text-primary mr-2"></i> Wax ring replacement & joint sealing
+                        </li>
+                        <li><i class="fa-solid fa-check text-primary mr-2"></i> Vent stack inspection</li>
+                    </ul>
+                </div>
+                <div
+                    class="lg:w-1/2 w-full rounded-2xl overflow-hidden shadow-xl border border-gray-200 dark:border-gray-700">
+                    <img src="https://assets.cdn.filesafe.space/ptsfKyPFZVchbY968oQQ/media/69a11d1e848f64b8089e28ce.png"
+                        alt="Sewer Odor Detection" class="w-full h-full object-cover">
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <section class="py-16 bg-secondary text-white relative">
+        <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+            <div class="absolute top-0 right-0 -mt-20 -mr-20 w-64 h-64 bg-primary/20 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 left-0 -mb-20 -ml-20 w-80 h-80 bg-blue-500/20 rounded-full blur-3xl"></div>
+        </div>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <h2 class="text-3xl md:text-4xl font-display font-bold mb-6">Need One Of These Services?</h2>
+            <p class="text-xl text-gray-300 mb-10">Don't wait for a small leak to become a major flood. Our expert team
+                is ready to tackle any plumbing challenge right now.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-6 mb-12">
+                <a class="bg-white/10 hover:bg-white/20 text-white text-lg font-bold px-8 py-4 rounded-xl backdrop-blur-md border border-white/30 transition hover:bg-white/30 flex items-center justify-center gap-3"
+                    href="tel:+15063155061">
+                    <i class="fa-solid fa-phone text-xl"></i> Call +1 506-315-5061
+                </a>
+            </div>
+
+            <div
+                class="w-full max-w-2xl mx-auto bg-white rounded-2xl overflow-hidden shadow-2xl border border-gray-200">
+                <iframe src="https://api.leadconnectorhq.com/widget/form/zWbTaz5OB23DriSX0ykh"
+                    style="width:100%;min-height:850px;border:none;border-radius:3px"
+                    id="inline-zWbTaz5OB23DriSX0ykh" data-layout="{'id':'INLINE'}" data-trigger-type="alwaysShow"
+                    data-trigger-value="" data-activation-type="alwaysActivated" data-activation-value=""
+                    data-deactivation-type="neverDeactivate" data-deactivation-value=""
+                    data-form-name="Free Estimate Form"
+                    data-layout-iframe-id="inline-zWbTaz5OB23DriSX0ykh" data-form-id="zWbTaz5OB23DriSX0ykh"
+                    scrolling="yes"
+                    title="Free Estimate Form">
+                </iframe>
+                <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-secondary text-gray-300 relative overflow-hidden pt-20 border-t border-gray-800">
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
+
+                <div class="lg:col-span-5 pr-0 lg:pr-12">
+                    <a href="index.html" class="flex items-center gap-3 group mb-6">
+                        <img src="https://assets.cdn.filesafe.space/ptsfKyPFZVchbY968oQQ/media/699e6ab35dfd5067d9ff2d4c.webp"
+                            alt="NB Plumber Joe Logo"
+                            class="h-12 w-12 overflow-hidden rounded-full bg-secondary border-2 border-primary object-cover group-hover:scale-105 transition-transform">
+                        <span class="font-display font-bold text-2xl text-white tracking-tight">NB Plumber Joe</span>
+                    </a>
+                    <p class="text-gray-400 mb-8 max-w-md leading-relaxed">
+                        NB Plumber Joe makes plumbing repairs continuous and scalable for thousands of homeowners and
+                        businesses worldwide.
+                    </p>
+
+                    <div class="flex gap-4 mb-8">
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white text-secondary flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+                            <i class="fa-brands fa-twitter text-lg"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white text-secondary flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+                            <i class="fa-brands fa-facebook-f text-lg"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white text-secondary flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+                            <i class="fa-brands fa-instagram text-lg"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white text-secondary flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+                            <i class="fa-brands fa-youtube text-lg"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white text-secondary flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+                            <i class="fa-brands fa-linkedin-in text-lg"></i>
+                        </a>
+                    </div>
+
+                    <div>
+                        <p class="text-sm text-gray-400 mb-3">See our glowing reviews on</p>
+                        <div class="flex items-center gap-6">
+                            <div class="flex items-center gap-2 text-white font-bold text-lg">
+                                <i class="fa-brands fa-google text-2xl"></i> Google
+                            </div>
+                            <div class="flex items-center gap-2 text-white font-bold text-lg">
+                                <i class="fa-brands fa-yelp text-2xl text-red-500"></i> Yelp
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-2 lg:col-start-7">
+                    <h3 class="text-gray-500 font-semibold mb-6 tracking-wide">Services</h3>
+                    <ul class="space-y-4 text-sm font-medium text-gray-400">
+                        <li><a href="services.html#general-plumbing"
+                                class="hover:text-primary transition-colors">General Plumbing</a></li>
+                        <li><a href="services.html#main-sewer-line" class="hover:text-primary transition-colors">Main
+                                Sewer Line</a></li>
+                        <li><a href="services.html#kitchen-sink-drains"
+                                class="hover:text-primary transition-colors">Kitchen Sink Drains</a></li>
+                        <li><a href="services.html#common-drain-lines"
+                                class="hover:text-primary transition-colors">Common Drain Lines</a></li>
+                        <li><a href="services.html#underground-repairs"
+                                class="hover:text-primary transition-colors">Underground Repairs</a></li>
+                        <li><a href="services.html#sewer-odor-detection"
+                                class="hover:text-primary transition-colors">Sewer Odor Detection</a></li>
+                    </ul>
+                </div>
+
+                <div class="lg:col-span-2">
+                    <h3 class="text-gray-500 font-semibold mb-6 tracking-wide">Company</h3>
+                    <ul class="space-y-4 text-sm font-medium text-gray-400">
+                        <li><a href="about.html" class="hover:text-primary transition-colors">About</a></li>
+                        <li><a href="team.html" class="hover:text-primary transition-colors">Our Team</a></li>
+                        <li><a href="guarantee.html" class="hover:text-primary transition-colors">Guarantee</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Careers</a></li>
+                        <li><a href="contact.html" class="hover:text-primary transition-colors">Contact us</a></li>
+                    </ul>
+                </div>
+
+                <div class="lg:col-span-2">
+                    <h3 class="text-gray-500 font-semibold mb-6 tracking-wide">Resources</h3>
+                    <ul class="space-y-4 text-sm font-medium text-gray-400">
+                        <li><a href="tips.html" class="hover:text-primary transition-colors">Plumbing Tips</a></li>
+                        <li><a href="about.html" class="hover:text-primary transition-colors">FAQ Articles</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Maintenance Guide</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Emergency Info</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Service Areas</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="flex justify-center mb-6">
+                <i class="fa-solid fa-chevron-down text-gray-500 text-2xl"></i>
+            </div>
+        </div>
+
+        <div class="bg-surface-dark/60 rounded-t-[2.5rem] mt-4 relative z-10 backdrop-blur-sm shadow-xl">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400">
+                    <p>Copyright  2026 NB Plumber Joe, Inc. All Rights Reserved.</p>
+                    <div class="flex flex-wrap justify-center gap-8 font-medium">
+                        <a href="privacy.html" class="hover:text-white transition-colors">Privacy Policy</a>
+                        <a href="terms.html" class="hover:text-white transition-colors">Terms of Service</a>
+                        <a href="#" class="hover:text-white transition-colors">Report an Issue</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="fixed bottom-6 right-6 z-40 sm:hidden">
+        <a href="tel:+15063155061"
+            class="bg-primary hover:bg-orange-600 text-white rounded-full w-14 h-14 flex items-center justify-center shadow-lg shadow-orange-500/30 transition transform hover:scale-110">
+            <i class="fa-solid fa-phone text-2xl"></i>
+        </a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const nav = document.getElementById('main-nav');
+            if (nav) {
+                const handleScroll = () => {
+                    if (window.scrollY > 50) {
+                        nav.classList.add('shadow-md');
+                    } else {
+                        nav.classList.remove('shadow-md');
+                    }
+                };
+                window.addEventListener('scroll', handleScroll, { passive: true });
+                handleScroll();
+            }
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const nav = document.getElementById('main-nav');
+            const footer = document.querySelector('footer');
+            if (!nav || !footer) return;
+
+            // Multiple thresholds for smooth detection
+            const thresholds = Array.from({ length: 21 }, (_, i) => i / 20);
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const isMobile = window.innerWidth < 768;
+                    const thresholdRequired = isMobile ? 0.2 : 0.8;
+
+                    if (entry.intersectionRatio > thresholdRequired) {
+                        nav.style.setProperty('transform', 'translateY(-100%)', 'important');
+                        nav.style.setProperty('opacity', '0', 'important');
+                        nav.style.setProperty('pointer-events', 'none', 'important');
+                        nav.style.setProperty('transition', 'all 0.3s ease-in-out', 'important');
+                    } else {
+                        nav.style.removeProperty('transform');
+                        nav.style.removeProperty('opacity');
+                        nav.style.removeProperty('pointer-events');
+                        nav.style.removeProperty('transition');
+                    }
+                });
+            }, { threshold: thresholds });
+
+            observer.observe(footer);
+        });
+    </script>
+</body>
+
+</html>

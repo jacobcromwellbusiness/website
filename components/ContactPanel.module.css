@@ -1,67 +1,182 @@
 .section {
-  padding: var(--pad-y) 0;
-  background-color: var(--ink);
+  padding: 120px 0;
+  background-color: transparent;
+  position: relative;
 }
 
 .container {
-  max-width: var(--max-width);
+  max-width: var(--max-width, 1200px);
   margin: 0 auto;
-  padding: 0 var(--pad-x);
-  display: flex;
-  flex-direction: column;
+  padding: 0 var(--pad-x, 20px);
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 60px;
   align-items: center;
-  text-align: center;
-  gap: 48px;
 }
 
-.heading {
-  font-size: var(--step-3);
-  max-width: 15ch;
-  color: var(--white);
+@media (max-width: 1024px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .textColumn {
+    align-items: center;
+    text-align: center;
+  }
 }
 
-.actions {
+.textColumn {
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 24px;
 }
 
-.emailLink {
-  font-size: var(--step-1);
-  color: var(--white);
-  text-decoration: underline;
-  text-decoration-color: var(--line-dark);
-  text-underline-offset: 8px;
-  transition: text-decoration-color 0.2s, color 0.2s;
+.mainHeading {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-family: var(--font-heading, inherit);
+  color: var(--white, #fff);
+  line-height: 1.1;
+  margin: 0;
+  letter-spacing: -0.02em;
 }
 
-.emailLink:hover, .emailLink:focus-visible {
-  color: var(--blue-soft);
-  text-decoration-color: var(--blue-soft);
+.subtext {
+  font-size: 1.2rem;
+  color: var(--text-color, #aaa);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.buttonGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 10px;
+  width: 100%;
+  max-width: 300px;
+  align-items: center;
+}
+
+.emailBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.2rem;
+  font-family: var(--font-heading, inherit);
+  color: var(--blue, #2f6bff);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 16px 32px;
+  border: 2px solid rgba(47, 107, 255, 0.3);
+  border-radius: 50px;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  background: rgba(47, 107, 255, 0.05);
+  cursor: pointer;
+  width: 100%;
+  justify-content: center;
 }
 
 .copyBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  font-family: var(--font-body, inherit);
+  color: var(--text-color, #aaa);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 20px;
+  border: 1px solid #ff6200;
+  border-radius: 50px;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
   background: transparent;
-  border: 1px solid var(--line-dark);
-  border-radius: 999px;
-  padding: 12px 24px;
-  color: var(--white);
-  font-family: var(--font-display);
-  font-size: var(--step--1);
-  letter-spacing: 0.05em;
   cursor: pointer;
-  transition: all 0.2s;
+  justify-content: center;
 }
 
-.copyBtn:hover, .copyBtn:focus-visible {
-  border-color: var(--white);
-  background-color: rgba(255, 255, 255, 0.05);
+.emailBtn:hover {
+  background: rgba(47, 107, 255, 0.15);
+  border-color: var(--blue, #2f6bff);
+  box-shadow: 0 0 20px rgba(47, 107, 255, 0.3);
+  transform: translateY(-4px);
 }
 
-@media (min-width: 640px) {
-  .actions {
-    flex-direction: row;
-    gap: 32px;
-  }
+.copyBtn:hover {
+  background: rgba(255, 98, 0, 0.1);
+  border-color: #ff6200;
+  transform: translateY(-2px);
+  color: #fff;
+}
+
+.emailBtn svg {
+  flex-shrink: 0;
+}
+
+.copyBtn svg {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+}
+
+.widgetColumn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 800ms ease-out, transform 800ms cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.widgetColumn.isVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.calendlyWrapper {
+  width: 100%;
+  background: #fff;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  /* The inline widget naturally fills its container via the height/min-width in inline styles */
+}
+
+.calendarLoader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  color: #555;
+  font-family: var(--font-body, inherit);
+  z-index: 5;
+  pointer-events: none;
+  transition: opacity 0.6s ease;
+}
+
+.calendarLoader.loaded {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(47, 107, 255, 0.2);
+  border-top-color: var(--blue, #2f6bff);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 16px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
 }

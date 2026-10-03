@@ -46,7 +46,6 @@ export default function ProjectRail() {
     return (
       <section id="work" className={styles.section}>
         <div className={styles.header}>
-          <div className={styles.index}>01 / SELECTED WORK</div>
           <h2 className={styles.heading}>BUILT TO MOVE FROM IDEA TO OUTPUT.</h2>
           <p className={styles.explanation}>Selected projects are being documented.</p>
         </div>
@@ -63,7 +62,6 @@ export default function ProjectRail() {
       <div className={styles.header}>
         <div className={styles.headerTop}>
           <div>
-            <div className={styles.index}>01 / SELECTED WORK</div>
             <h2 className={styles.heading}>BUILT TO MOVE FROM IDEA TO OUTPUT.</h2>
             <p className={styles.explanation}>A collection of experiments, systems, and shipped work.</p>
           </div>

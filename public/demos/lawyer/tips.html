@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Smiths Legal Tips - Smith Legal Group</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Montserrat:wght@600;700;800&display=swap"
+        rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#A855F7", // Purple primary
+                        secondary: "#0284C7", // Light blue secondary
+                        "background-light": "#F8FAFC",
+                        "background-dark": "#0F172A",
+                        "surface-light": "#FFFFFF",
+                        "surface-dark": "#1E293B",
+                        "text-light": "#334155",
+                        "text-dark": "#E2E8F0",
+                    },
+                    fontFamily: {
+                        sans: ['Roboto', 'sans-serif'],
+                        display: ['Montserrat', 'sans-serif'],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.5rem",
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+                        'glow': '0 0 15px rgba(168, 85, 247, 0.3)',
+                    }
+                },
+            },
+        };
+    </script>
+    <style>
+        html {
+            margin: 0 !important;
+            padding: 0 !important;
+            width: 100%;
+        }
+
+        body {
+            margin: 0 !important;
+            padding: 0 !important;
+            width: 100%;
+            overflow-x: hidden;
+            min-height: max(884px, 100dvh);
+        }
+
+        .gradient-text {
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            background-image: linear-gradient(to right, #EAB308, #FDE047);
+        }
+    </style>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark font-sans transition-colors duration-300 flex flex-col min-h-screen">
+    
+    <nav id="main-nav"
+        class="sticky top-0 z-50 bg-white/95 dark:bg-surface-dark/95 backdrop-blur-sm border-b border-gray-200 dark:border-gray-700 shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="flex items-center gap-2 group">
+                        <img src="public/images/law_office_logo.webp"
+                            alt="Smith Legal Group Logo"
+                            class="h-10 w-10 sm:h-14 sm:w-14 overflow-hidden rounded-full bg-secondary border-2 border-primary object-cover group-hover:scale-105 transition-transform">
+                        <span
+                            class="font-display font-bold text-lg sm:text-lg md:text-xl text-secondary dark:text-white tracking-tight sm:tracking-normal whitespace-nowrap">Smith Legal Group</span>
+                    </a>
+                </div>
+                <div class="flex items-center md:hidden">
+                    <button
+                        class="text-gray-500 dark:text-gray-300 hover:text-primary focus:outline-none p-2 rounded-md"
+                        onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" type="button">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+                <div class="hidden md:flex flex-1 justify-center space-x-8 items-center">
+                    <a class="text-gray-700 dark:text-gray-200 hover:text-primary font-medium"
+                        href="index.html">Home</a>
+                    <div class="relative group">
+                        <button
+                            class="text-gray-700 dark:text-gray-200 hover:text-primary font-medium flex items-center gap-1">
+                            About <i class="fa-solid fa-chevron-down text-xs"></i>
+                        </button>
+                        <div
+                            class="absolute left-0 mt-2 w-48 before:absolute before:-top-4 before:left-0 before:w-full before:h-4 bg-white dark:bg-surface-dark rounded-md shadow-lg py-1 border border-gray-200 dark:border-gray-700 hidden group-hover:block">
+                            <a class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                href="team.html">Our Team</a>
+                            <a class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                href="guarantee.html">Guarantee</a>
+                            <a class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                href="about.html">About & FAQ</a>
+                        </div>
+                    </div>
+                    <a class="text-gray-700 dark:text-gray-200 hover:text-primary font-medium"
+                        href="services.html">Services</a>
+                    <a class="text-primary font-bold" href="tips.html">Smiths Legal Tips</a>
+                </div>
+                <div class="hidden md:flex flex-shrink-0">
+                    <a class="bg-primary hover:bg-purple-600 text-white px-6 py-2 rounded-full font-bold shadow-glow transition-all"
+                        href="contact.html">Contact Us</a>
+                </div>
+            </div>
+        </div>
+        <div class="md:hidden bg-white dark:bg-surface-dark border-b border-gray-200 dark:border-gray-700 hidden"
+            id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800"
+                    href="index.html">Home</a>
+                <a class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800"
+                    href="about.html">About & FAQ</a>
+                <a class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800"
+                    href="team.html">Our Team</a>
+                <a class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800"
+                    href="guarantee.html">Guarantee</a>
+                <a class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800"
+                    href="services.html">Services</a>
+                <a class="block px-3 py-2 rounded-md text-base font-medium text-primary bg-purple-50 dark:bg-purple-900/20"
+                    href="tips.html">Tips</a>
+                <a class="block px-3 py-2 rounded-md text-base font-bold text-primary" href="contact.html">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative bg-secondary py-16">
+        <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 flex flex-col items-center justify-center">
+            <h1 class="text-4xl md:text-5xl font-display font-bold text-white mb-4">Smiths Legal Tips</h1>
+            <p class="text-lg text-gray-300 max-w-2xl mx-auto">Expert advice, maintenance tricks, and how-to guides to
+                keep your home's legal services systems running smoothly and save you money.</p>
+        </div>
+    </header>
+
+    <section class="py-16 bg-background-light dark:bg-background-dark flex-grow">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                
+            <!-- Blog Post 1 -->
+            <article class="bg-white dark:bg-surface-dark rounded-2xl shadow-xl overflow-hidden border border-gray-100 dark:border-gray-700 group hover:shadow-2xl transition-all duration-300">
+                <div class="relative h-48 overflow-hidden">
+                    <img alt="Business Contracts" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="public/images/blog_contract.webp" />
+                    <div class="absolute top-4 left-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Contract Law</div>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-3 gap-4">
+                        <span class="flex items-center gap-1"><i class="fa-regular fa-calendar"></i> Oct 12, 2026</span>
+                        <span class="flex items-center gap-1"><i class="fa-regular fa-clock"></i> 4 min read</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-secondary dark:text-white mb-3 line-clamp-2">The Ultimate Guide to Business Contracts</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4 line-clamp-3">Properly drafted business contracts are essential for maintaining your corporate health. Learn the best practices and key clauses to keep your agreements legally sound.</p>
+                    <a class="text-primary font-bold hover:text-yellow-600 flex items-center gap-2 group-hover:gap-3 transition-all" href="#">Read Full Article <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- Blog Post 2 -->
+            <article class="bg-white dark:bg-surface-dark rounded-2xl shadow-xl overflow-hidden border border-gray-100 dark:border-gray-700 group hover:shadow-2xl transition-all duration-300">
+                <div class="relative h-48 overflow-hidden">
+                    <img alt="Corporate Structures" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="public/images/blog_llc.webp" />
+                    <div class="absolute top-4 left-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Business Structure</div>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-3 gap-4">
+                        <span class="flex items-center gap-1"><i class="fa-regular fa-calendar"></i> Oct 05, 2026</span>
+                        <span class="flex items-center gap-1"><i class="fa-regular fa-clock"></i> 5 min read</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-secondary dark:text-white mb-3 line-clamp-2">Corporate vs LLC: Which is Right for You?</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4 line-clamp-3">Understanding the differences between a Corporation and an LLC can help you make an informed decision. We break down the pros, cons, and ideal candidates for each structure.</p>
+                    <a class="text-primary font-bold hover:text-yellow-600 flex items-center gap-2 group-hover:gap-3 transition-all" href="#">Read Full Article <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- Blog Post 3 -->
+            <article class="bg-white dark:bg-surface-dark rounded-2xl shadow-xl overflow-hidden border border-gray-100 dark:border-gray-700 group hover:shadow-2xl transition-all duration-300">
+                <div class="relative h-48 overflow-hidden">
+                    <img alt="Corporate Audit" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="public/images/legal services_legal cases.webp" />
+                    <div class="absolute top-4 left-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Compliance</div>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-3 gap-4">
+                        <span class="flex items-center gap-1"><i class="fa-regular fa-calendar"></i> Sep 28, 2026</span>
+                        <span class="flex items-center gap-1"><i class="fa-regular fa-clock"></i> 6 min read</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-secondary dark:text-white mb-3 line-clamp-2">Preparing for a Corporate Audit</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4 line-clamp-3">Facing a corporate audit is an adjustment, especially when it comes to compliance and documentation. Discover our top tips for a smooth transition so you can operate with confidence.</p>
+                    <a class="text-primary font-bold hover:text-yellow-600 flex items-center gap-2 group-hover:gap-3 transition-all" href="#">Read Full Article <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+
+            </div>
+
+            <div class="mt-16 bg-primary/10 dark:bg-primary/5 rounded-2xl p-8 border border-primary/20 text-center">
+                <h3 class="text-2xl font-bold text-secondary dark:text-white mb-4">Have a legal services question for Dr. Legal Services?
+                </h3>
+                <p class="text-gray-600 dark:text-gray-300 mb-6 max-w-lg mx-auto">Send us your questions and we might
+                    feature them in our next blog post!</p>
+                <a href="contact.html"
+                    class="inline-block bg-white dark:bg-surface-dark hover:bg-gray-50 dark:bg-gray-800 text-primary border border-primary font-bold px-8 py-3 rounded-full transition-colors shadow-sm">Ask
+                    Dr. Legal Services a Question</a>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="py-16 bg-secondary text-white relative border-t border-gray-800 overflow-hidden" id="contact">
+        <div class="absolute top-0 right-0 -mt-20 -mr-20 w-64 h-64 bg-primary/20 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 -mb-20 -ml-20 w-80 h-80 bg-blue-500/20 rounded-full blur-3xl"></div>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="bg-surface-light dark:bg-surface-dark rounded-3xl shadow-2xl p-6 md:p-10 border border-gray-200 dark:border-gray-700">
+                <div class="text-center mb-8">
+    <h2 class="text-3xl font-display font-bold text-secondary dark:text-white mb-2">Book Your Next Appointment</h2>
+    <p class="text-gray-600 dark:text-gray-300">Select a convenient time below to schedule your consultation with Dr. Legal Services.</p>
+</div>
+
+<div class="w-full bg-white dark:bg-surface-dark rounded-xl border border-gray-200 dark:border-gray-700 p-6 shadow-sm">
+    <div class="flex flex-col md:flex-row gap-8">
+        <!-- Calendar side -->
+        <div class="flex-1">
+            <div class="flex justify-between items-center mb-6">
+                <button class="text-gray-400 hover:text-primary transition-colors focus:outline-none p-1"><i class="fa-solid fa-chevron-left"></i></button>
+                <h3 class="font-bold text-lg text-secondary dark:text-white">October 2026</h3>
+                <button class="text-gray-400 hover:text-primary transition-colors focus:outline-none p-1"><i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+            <div class="grid grid-cols-7 gap-2 text-center mb-2">
+                <div class="text-xs font-bold text-gray-400 uppercase">Su</div>
+                <div class="text-xs font-bold text-gray-400 uppercase">Mo</div>
+                <div class="text-xs font-bold text-gray-400 uppercase">Tu</div>
+                <div class="text-xs font-bold text-gray-400 uppercase">We</div>
+                <div class="text-xs font-bold text-gray-400 uppercase">Th</div>
+                <div class="text-xs font-bold text-gray-400 uppercase">Fr</div>
+                <div class="text-xs font-bold text-gray-400 uppercase">Sa</div>
+            </div>
+            <div class="grid grid-cols-7 gap-2 text-center text-sm font-medium">
+                <!-- Previous month padding -->
+                <div class="py-2 text-gray-300 dark:text-gray-600 select-none">27</div>
+                <div class="py-2 text-gray-300 dark:text-gray-600 select-none">28</div>
+                <div class="py-2 text-gray-300 dark:text-gray-600 select-none">29</div>
+                <div class="py-2 text-gray-300 dark:text-gray-600 select-none">30</div>
+                <button type="button" class="cal-day py-2 text-secondary dark:text-gray-300 rounded-lg cursor-pointer hover:bg-primary/20 hover:text-primary hover:shadow-[0_0_0_2px_rgba(168,85,247,0.4)] focus:outline-none transition-all">1</button>
+                <button type="button" class="cal-day py-2 text-secondary dark:text-gray-300 rounded-lg cursor-pointer hover:bg-primary/20 hover:text-primary hover:shadow-[0_0_0_2px_rgba(168,85,247,0.4)] focus:outline-none transition-all">2</button>
+                <button type="button" class="cal-day py-2 text-secondary dark:text-gray-300 rounded-lg cursor-pointer hover:bg-primary/20 hover:text-primary hover:shadow-[0_0_0_2px_rgba(168,85,247,0.4)] focus:outline-none transition-all">3</button>
+                <button type="button" class="cal-day py-2 text-secondary dark:text-gray-300 rounded-lg cursor-pointer hover:bg-primary/20 hover:text-primary hover:shadow-[0_0_0_2px_rgba(168,85,247,0.4)] focus:outline-none transition-all">4</button>
+                <button type="button" class="cal-day py-2 text-secondary dark:text-gray-300 rounded-lg cursor-pointer hover:bg-primary/20 hover:text-primary hover:shadow-[0_0_0_2px_rgba(168,85,247,0.4)] focus:outline-none transition-all">5</button>
+                <button type="button" class="cal-day py-2 bg-primary text-white rounded-lg cursor-pointer shadow-md font-bold hover:bg-purple-600 focus:outline-none transition-all active-day">6</button>
+                <button type="button" class="cal-day py-2 text-secondary dark:text-gray-300 rounded-lg cursor-pointer hover:bg-primary/20 hover:text-primary hover:shadow-[0_0_0_2px_rgba(168,85,247,0.4)] focus:outline-none transition-all">7</button>
+                <button type="button" class="cal-day py-2 text-secondary dark:text-gray-300 rounded-lg cursor-pointer hover:bg-primary/20 hover:text-primary hover:shadow-[0_0_0_2px_rgba(168,85,247,0.4)] focus:outline-none transition-all">8</button>
+                <button type="button" class="cal-day py-2 text-secondary dark:text-gray-300 rounded-lg cursor-pointer hover:bg-primary/20 hover:text-primary hover:shadow-[0_0_0_2px_rgba(168,85,247,0.4)] focus:outline-none transition-all">9</button>
+                <button type="button" class="cal-day py-2 text-secondary dark:text-gray-300 rounded-lg cursor-pointer hover:bg-primary/20 hover:text-primary hover:shadow-[0_0_0_2px_rgba(168,85,247,0.4)] focus:outline-none transition-all">10</button>
+                <button type="button" class="cal-day py-2 text-secondary dark:text-gray-300 rounded-lg cursor-pointer hover:bg-primary/20 hover:text-primary hover:shadow-[0_0_0_2px_rgba(168,85,247,0.4)] focus:outline-none transition-all">11</button>
+                <button type="button" class="cal-day py-2 text-secondary dark:text-gray-300 rounded-lg cursor-pointer hover:bg-primary/20 hover:text-primary hover:shadow-[0_0_0_2px_rgba(168,85,247,0.4)] focus:outline-none transition-all">12</button>
+                <button type="button" class="cal-day py-2 text-secondary dark:text-gray-300 rounded-lg cursor-pointer hover:bg-primary/20 hover:text-primary hover:shadow-[0_0_0_2px_rgba(168,85,247,0.4)] focus:outline-none transition-all">13</button>
+                <button type="button" class="cal-day py-2 text-secondary dark:text-gray-300 rounded-lg cursor-pointer hover:bg-primary/20 hover:text-primary hover:shadow-[0_0_0_2px_rgba(168,85,247,0.4)] focus:outline-none transition-all">14</button>
+                <button type="button" class="cal-day py-2 text-secondary dark:text-gray-300 rounded-lg cursor-pointer hover:bg-primary/20 hover:text-primary hover:shadow-[0_0_0_2px_rgba(168,85,247,0.4)] focus:outline-none transition-all">15</button>
+                <button type="button" class="cal-day py-2 text-secondary dark:text-gray-300 rounded-lg cursor-pointer hover:bg-primary/20 hover:text-primary hover:shadow-[0_0_0_2px_rgba(168,85,247,0.4)] focus:outline-none transition-all">16</button>
+                <button type="button" class="cal-day py-2 text-secondary dark:text-gray-300 rounded-lg cursor-pointer hover:bg-primary/20 hover:text-primary hover:shadow-[0_0_0_2px_rgba(168,85,247,0.4)] focus:outline-none transition-all">17</button>
+                <button type="button" class="cal-day py-2 text-secondary dark:text-gray-300 rounded-lg cursor-pointer hover:bg-primary/20 hover:text-primary hover:shadow-[0_0_0_2px_rgba(168,85,247,0.4)] focus:outline-none transition-all">18</button>
+                <button type="button" class="cal-day py-2 text-secondary dark:text-gray-300 rounded-lg cursor-pointer hover:bg-primary/20 hover:text-primary hover:shadow-[0_0_0_2px_rgba(168,85,247,0.4)] focus:outline-none transition-all">19</button>
+                <button type="button" class="cal-day py-2 text-secondary dark:text-gray-300 rounded-lg cursor-pointer hover:bg-primary/20 hover:text-primary hover:shadow-[0_0_0_2px_rgba(168,85,247,0.4)] focus:outline-none transition-all">20</button>
+                <button type="button" class="cal-day py-2 text-secondary dark:text-gray-300 rounded-lg cursor-pointer hover:bg-primary/20 hover:text-primary hover:shadow-[0_0_0_2px_rgba(168,85,247,0.4)] focus:outline-none transition-all">21</button>
+                <button type="button" class="cal-day py-2 text-secondary dark:text-gray-300 rounded-lg cursor-pointer hover:bg-primary/20 hover:text-primary hover:shadow-[0_0_0_2px_rgba(168,85,247,0.4)] focus:outline-none transition-all">22</button>
+                <button type="button" class="cal-day py-2 text-secondary dark:text-gray-300 rounded-lg cursor-pointer hover:bg-primary/20 hover:text-primary hover:shadow-[0_0_0_2px_rgba(168,85,247,0.4)] focus:outline-none transition-all">23</button>
+                <button type="button" class="cal-day py-2 text-secondary dark:text-gray-300 rounded-lg cursor-pointer hover:bg-primary/20 hover:text-primary hover:shadow-[0_0_0_2px_rgba(168,85,247,0.4)] focus:outline-none transition-all">24</button>
+                <button type="button" class="cal-day py-2 text-secondary dark:text-gray-300 rounded-lg cursor-pointer hover:bg-primary/20 hover:text-primary hover:shadow-[0_0_0_2px_rgba(168,85,247,0.4)] focus:outline-none transition-all">25</button>
+                <button type="button" class="cal-day py-2 text-secondary dark:text-gray-300 rounded-lg cursor-pointer hover:bg-primary/20 hover:text-primary hover:shadow-[0_0_0_2px_rgba(168,85,247,0.4)] focus:outline-none transition-all">26</button>
+                <button type="button" class="cal-day py-2 text-secondary dark:text-gray-300 rounded-lg cursor-pointer hover:bg-primary/20 hover:text-primary hover:shadow-[0_0_0_2px_rgba(168,85,247,0.4)] focus:outline-none transition-all">27</button>
+                <button type="button" class="cal-day py-2 text-secondary dark:text-gray-300 rounded-lg cursor-pointer hover:bg-primary/20 hover:text-primary hover:shadow-[0_0_0_2px_rgba(168,85,247,0.4)] focus:outline-none transition-all">28</button>
+                <button type="button" class="cal-day py-2 text-secondary dark:text-gray-300 rounded-lg cursor-pointer hover:bg-primary/20 hover:text-primary hover:shadow-[0_0_0_2px_rgba(168,85,247,0.4)] focus:outline-none transition-all">29</button>
+                <button type="button" class="cal-day py-2 text-secondary dark:text-gray-300 rounded-lg cursor-pointer hover:bg-primary/20 hover:text-primary hover:shadow-[0_0_0_2px_rgba(168,85,247,0.4)] focus:outline-none transition-all">30</button>
+                <button type="button" class="cal-day py-2 text-secondary dark:text-gray-300 rounded-lg cursor-pointer hover:bg-primary/20 hover:text-primary hover:shadow-[0_0_0_2px_rgba(168,85,247,0.4)] focus:outline-none transition-all">31</button>
+            </div>
+        </div>
+        
+        <!-- Time selection side -->
+        <div class="flex-1 border-t md:border-t-0 md:border-l border-gray-200 dark:border-gray-700 pt-6 md:pt-0 md:pl-8">
+            <h4 id="selected-date-display" class="font-bold text-secondary dark:text-white mb-4">October 6, 2026</h4>
+            <div class="grid grid-cols-2 gap-3">
+                <button type="button" class="time-btn py-3 px-4 border border-primary bg-primary/10 text-primary rounded-xl font-bold flex justify-center items-center gap-2 ring-2 ring-purple-500/50 transition-all focus:outline-none"><i class="fa-regular fa-clock"></i> 09:00 AM</button>
+                <button type="button" class="time-btn py-3 px-4 border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 rounded-xl hover:border-primary hover:text-primary hover:shadow-[0_0_0_2px_rgba(168,85,247,0.3)] transition-all font-medium focus:outline-none flex justify-center items-center gap-2"><i class="fa-regular fa-clock hidden"></i> 10:30 AM</button>
+                <button type="button" class="time-btn py-3 px-4 border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 rounded-xl hover:border-primary hover:text-primary hover:shadow-[0_0_0_2px_rgba(168,85,247,0.3)] transition-all font-medium focus:outline-none flex justify-center items-center gap-2"><i class="fa-regular fa-clock hidden"></i> 01:00 PM</button>
+                <button type="button" class="time-btn py-3 px-4 border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 rounded-xl hover:border-primary hover:text-primary hover:shadow-[0_0_0_2px_rgba(168,85,247,0.3)] transition-all font-medium focus:outline-none flex justify-center items-center gap-2"><i class="fa-regular fa-clock hidden"></i> 03:30 PM</button>
+            </div>
+            
+            <div class="mt-6 pt-6 border-t border-gray-100 dark:border-gray-700">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-sm text-gray-500">Consultation</span>
+                    <span class="font-bold text-secondary dark:text-white">Free</span>
+                </div>
+                <button type="button" class="w-full bg-primary hover:bg-purple-600 hover:shadow-lg focus:ring-4 focus:ring-primary/30 text-white font-bold py-4 rounded-xl shadow-glow transition-all transform hover:-translate-y-1">Confirm Booking</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const dayBtns = document.querySelectorAll('.cal-day');
+    const timeBtns = document.querySelectorAll('.time-btn');
+    const selectedDateDisplay = document.getElementById('selected-date-display');
+    
+    dayBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            // Remove active styles from all days
+            dayBtns.forEach(b => {
+                b.classList.remove('bg-primary', 'text-white', 'shadow-md', 'font-bold', 'active-day', 'hover:bg-purple-600');
+                b.classList.add('text-secondary', 'dark:text-gray-300', 'hover:bg-primary/20', 'hover:text-primary', 'hover:shadow-[0_0_0_2px_rgba(168,85,247,0.4)]');
+            });
+            // Apply active styles to clicked day
+            const t = e.currentTarget;
+            t.classList.remove('text-secondary', 'dark:text-gray-300', 'hover:bg-primary/20', 'hover:text-primary', 'hover:shadow-[0_0_0_2px_rgba(168,85,247,0.4)]');
+            t.classList.add('bg-primary', 'text-white', 'shadow-md', 'font-bold', 'active-day', 'hover:bg-purple-600');
+            
+            // Update display
+            selectedDateDisplay.textContent = 'October ' + t.textContent + ', 2026';
+        });
+    });
+
+    timeBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            // Remove active styles from all times
+            timeBtns.forEach(b => {
+                b.classList.remove('border-primary', 'bg-primary/10', 'text-primary', 'font-bold', 'ring-2', 'ring-purple-500/50');
+                b.classList.add('border-gray-200', 'dark:border-gray-700', 'text-gray-600', 'dark:text-gray-300', 'hover:border-primary', 'hover:text-primary', 'hover:shadow-[0_0_0_2px_rgba(168,85,247,0.3)]', 'font-medium');
+                b.querySelector('.fa-clock').classList.add('hidden');
+            });
+            // Apply active styles to clicked time
+            const t = e.currentTarget;
+            t.classList.remove('border-gray-200', 'dark:border-gray-700', 'text-gray-600', 'dark:text-gray-300', 'hover:border-primary', 'hover:text-primary', 'hover:shadow-[0_0_0_2px_rgba(168,85,247,0.3)]', 'font-medium');
+            t.classList.add('border-primary', 'bg-primary/10', 'text-primary', 'font-bold', 'ring-2', 'ring-purple-500/50');
+            t.querySelector('.fa-clock').classList.remove('hidden');
+        });
+    });
+});
+</script>
+</div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-secondary text-gray-300 relative overflow-hidden pt-20 border-t border-gray-800">
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
+
+                <div class="lg:col-span-5 pr-0 lg:pr-12">
+                    <a href="index.html" class="flex items-center gap-3 group mb-6">
+                        <img src="public/images/law_office_logo.webp"
+                            alt="Smith Legal Group Logo"
+                            class="h-12 w-12 overflow-hidden rounded-full bg-secondary border-2 border-primary object-cover group-hover:scale-105 transition-transform">
+                        <span class="font-display font-bold text-2xl text-white tracking-tight">Smith Legal Group</span>
+                    </a>
+                    <p class="text-gray-400 mb-8 max-w-md leading-relaxed">
+                        Smith Legal Group makes legal services legal cases continuous and scalable for thousands of homeowners and
+                        businesses worldwide.
+                    </p>
+
+                    <div class="flex gap-4 mb-8">
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white text-secondary flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+                            <i class="fa-brands fa-twitter text-lg"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white text-secondary flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+                            <i class="fa-brands fa-facebook-f text-lg"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white text-secondary flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+                            <i class="fa-brands fa-instagram text-lg"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white text-secondary flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+                            <i class="fa-brands fa-youtube text-lg"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white text-secondary flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+                            <i class="fa-brands fa-linkedin-in text-lg"></i>
+                        </a>
+                    </div>
+
+                    <div>
+                        <p class="text-sm text-gray-400 mb-3">See our glowing reviews on</p>
+                        <div class="flex items-center gap-6">
+                            <div class="flex items-center gap-2 text-white font-bold text-lg">
+                                <i class="fa-brands fa-google text-2xl"></i> Google
+                            </div>
+                            <div class="flex items-center gap-2 text-white font-bold text-lg">
+                                <i class="fa-brands fa-yelp text-2xl text-red-500"></i> Yelp
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-2 lg:col-start-7">
+                    <h3 class="text-gray-500 font-semibold mb-6 tracking-wide">Services</h3>
+                    <ul class="space-y-4 text-sm font-medium text-gray-400">
+                        <li><a href="services.html" class="hover:text-primary transition-colors">Corporate Litigation</a></li>
+                        <li><a href="services.html" class="hover:text-primary transition-colors">General Counsel</a></li>
+                        <li><a href="services.html" class="hover:text-primary transition-colors">Contract Review</a></li>
+                        <li><a href="services.html" class="hover:text-primary transition-colors">Legal Consultations</a></li>
+                        <li><a href="services.html" class="hover:text-primary transition-colors">Dispute Resolution</a></li>
+                        <li><a href="services.html" class="hover:text-primary transition-colors">Estate Planning</a></li>
+                    </ul>
+                </div>
+
+                <div class="lg:col-span-2">
+                    <h3 class="text-gray-500 font-semibold mb-6 tracking-wide">Company</h3>
+                    <ul class="space-y-4 text-sm font-medium text-gray-400">
+                        <li><a href="about.html" class="hover:text-primary transition-colors">About</a></li>
+                        <li><a href="team.html" class="hover:text-primary transition-colors">Our Team</a></li>
+                        <li><a href="guarantee.html" class="hover:text-primary transition-colors">Guarantee</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Careers</a></li>
+                        <li><a href="contact.html" class="hover:text-primary transition-colors">Contact us</a></li>
+                    </ul>
+                </div>
+
+                <div class="lg:col-span-2">
+                    <h3 class="text-gray-500 font-semibold mb-6 tracking-wide">Resources</h3>
+                    <ul class="space-y-4 text-sm font-medium text-gray-400">
+                        <li><a href="tips.html" class="hover:text-primary transition-colors">Smiths Legal Tips</a></li>
+                        <li><a href="about.html" class="hover:text-primary transition-colors">FAQ Articles</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Maintenance Guide</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Emergency Info</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Service Areas</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="flex justify-center mb-6">
+                <i class="fa-solid fa-chevron-down text-gray-500 text-2xl"></i>
+            </div>
+        </div>
+
+        <div class="bg-surface-dark/60 rounded-t-[2.5rem] mt-4 relative z-10 backdrop-blur-sm shadow-xl">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400">
+                    <p>Copyright  2026 Smith Legal Group, Inc. All Rights Reserved.</p>
+                    <div class="flex flex-wrap justify-center gap-8 font-medium">
+                        <a href="privacy.html" class="hover:text-white transition-colors">Privacy Policy</a>
+                        <a href="terms.html" class="hover:text-white transition-colors">Terms of Service</a>
+                        <a href="#" class="hover:text-white transition-colors">Report an Issue</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="fixed bottom-6 right-6 z-40 sm:hidden">
+        <a href="tel:+15063155061"
+            class="bg-primary hover:bg-purple-600 text-white rounded-full w-14 h-14 flex items-center justify-center shadow-lg shadow-purple-500/30 transition transform hover:scale-110">
+            <i class="fa-solid fa-phone text-2xl"></i>
+        </a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const nav = document.getElementById('main-nav');
+            if (nav) {
+                const handleScroll = () => {
+                    if (window.scrollY > 50) {
+                        nav.classList.add('shadow-md');
+                    } else {
+                        nav.classList.remove('shadow-md');
+                    }
+                };
+                window.addEventListener('scroll', handleScroll, { passive: true });
+                handleScroll();
+            }
+        });
+    </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const animateElements = document.querySelectorAll('header > div, section, main > div > div, .bg-white.rounded-3xl, .bg-cased-light');
+            let delay = 0;
+            animateElements.forEach((el) => {
+                if (!el.hasAttribute('data-aos') && !el.closest('nav') && !el.closest('#mobile-menu') && !el.closest('.carousel-track')) {
+                    el.setAttribute('data-aos', 'fade-up');
+                    el.setAttribute('data-aos-delay', delay);
+                    delay = (delay + 100) % 400; // stagger 0, 100, 200, 300
+                }
+            });
+
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 50,
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const nav = document.getElementById('main-nav');
+            const footer = document.querySelector('footer');
+            if (!nav || !footer) return;
+
+            // Multiple thresholds for smooth detection
+            const thresholds = Array.from({ length: 21 }, (_, i) => i / 20);
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const isMobile = window.innerWidth < 768;
+                    const thresholdRequired = isMobile ? 0.2 : 0.8;
+
+                    if (entry.intersectionRatio > thresholdRequired) {
+                        nav.style.setProperty('transform', 'translateY(-100%)', 'important');
+                        nav.style.setProperty('opacity', '0', 'important');
+                        nav.style.setProperty('pointer-events', 'none', 'important');
+                        nav.style.setProperty('transition', 'all 0.3s ease-in-out', 'important');
+                    } else {
+                        nav.style.removeProperty('transform');
+                        nav.style.removeProperty('opacity');
+                        nav.style.removeProperty('pointer-events');
+                        nav.style.removeProperty('transition');
+                    }
+                });
+            }, { threshold: thresholds });
+
+            observer.observe(footer);
+        });
+    </script>
+</body>
+
+</html>

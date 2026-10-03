@@ -1,0 +1,86 @@
+.container {
+  width: 100%;
+  flex: 1;
+  min-height: 400px;
+  position: relative;
+  overflow: hidden;
+  margin-top: 1rem;
+  opacity: 0.9;
+}
+
+.catWrapper {
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  animation: walkIn 8s ease-out infinite;
+  display: flex;
+  align-items: flex-end;
+  transform-origin: bottom center;
+}
+
+.catSvg {
+  width: 100%;
+  height: 100%;
+  color: var(--text-color);
+}
+
+.yarnContainer {
+  position: absolute;
+  top: 0px;
+  left: 280px; /* right of where cat stops */
+  width: 150px;
+  height: 250px;
+  animation: dropYarn 8s ease-out infinite;
+  transform-origin: top center;
+}
+
+.yarnSvg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Animations */
+@keyframes walkIn {
+  0% { transform: translateX(-400px) translateY(10px); }
+  5% { transform: translateX(-300px) translateY(0px); }
+  10% { transform: translateX(-200px) translateY(10px); }
+  15% { transform: translateX(-100px) translateY(0px); }
+  20% { transform: translateX(0px) translateY(10px); }
+  25% { transform: translateX(50px) translateY(0px); }
+  30% { transform: translateX(50px) translateY(0px); } /* Cat stops */
+  
+  /* Cat bats playfully */
+  35% { transform: translateX(50px) translateY(-20px) rotate(5deg); }
+  38% { transform: translateX(50px) translateY(0px) rotate(0deg); }
+  45% { transform: translateX(50px) translateY(-30px) rotate(8deg); }
+  48% { transform: translateX(50px) translateY(0px) rotate(0deg); }
+  55% { transform: translateX(50px) translateY(-10px) rotate(3deg); }
+  58% { transform: translateX(50px) translateY(0px) rotate(0deg); }
+
+  /* Stay sitting */
+  85% { transform: translateX(50px) translateY(0px); }
+  
+  /* Walk out to restart */
+  90% { transform: translateX(50px) translateY(10px); }
+  100% { transform: translateX(600px) translateY(0px); }
+}
+
+@keyframes dropYarn {
+  0%, 25% { transform: translateY(-300px) rotate(0deg); }
+  30% { transform: translateY(0) rotate(0deg); } /* yarn drops right as cat stops */
+  
+  /* Swinging away from bats */
+  35% { transform: translateY(0) rotate(20deg); } /* Cat hit it */
+  40% { transform: translateY(0) rotate(-10deg); }
+  45% { transform: translateY(0) rotate(30deg); } /* Cat hit harder */
+  50% { transform: translateY(0) rotate(-15deg); }
+  55% { transform: translateY(0) rotate(10deg); }
+  60% { transform: translateY(0) rotate(-5deg); }
+  70% { transform: translateY(0) rotate(2deg); }
+  85% { transform: translateY(0) rotate(0deg); } /* settles */
+  
+  /* Pull back up */
+  90%, 100% { transform: translateY(-300px) rotate(0deg); }
+}

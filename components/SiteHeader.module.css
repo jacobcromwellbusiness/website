@@ -11,7 +11,7 @@
 .scrolled {
   background-color: rgba(5, 7, 11, 0.82);
   backdrop-filter: blur(8px);
-  border-bottom-color: var(--line-dark);
+  border-bottom-color: var(--border-color);
 }
 
 .container {
@@ -38,12 +38,12 @@
 
 .navLink {
   font-size: var(--step--1);
-  color: var(--muted-dark);
+  color: var(--text-muted);
   transition: color 0.2s;
 }
 
 .navLink:hover {
-  color: var(--white);
+  color: var(--text-color);
 }
 
 .contactDesktop {
@@ -53,7 +53,7 @@
 .mobileToggle {
   background: none;
   border: none;
-  color: var(--white);
+  color: var(--text-color);
   font-size: var(--step--1);
   cursor: pointer;
   z-index: 101;

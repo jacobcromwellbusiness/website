@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Privacy Policy - Dr Denture</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Montserrat:wght@600;700;800&display=swap"
+        rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#FDE047", // Orange from logo
+                        secondary: "#BAE6FD", // Deep Navy from logo
+                        "background-light": "#F8FAFC",
+                        "background-dark": "#0F172A",
+                        "surface-light": "#FFFFFF",
+                        "surface-dark": "#1E293B",
+                        "text-light": "#334155",
+                        "text-dark": "#E2E8F0",
+                    },
+                    fontFamily: {
+                        sans: ['Roboto', 'sans-serif'],
+                        display: ['Montserrat', 'sans-serif'],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.5rem",
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+                        'glow': '0 0 15px rgba(253, 224, 71, 0.3)',
+                    }
+                },
+            },
+        };
+    </script>
+    <style>
+        .gradient-text {
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            background-image: linear-gradient(to right, #FDE047, #FEF08A);
+        }
+
+        body {
+            min-height: max(884px, 100dvh);
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            flex-grow: 1;
+        }
+    </style>
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark font-sans transition-colors duration-300">
+    
+
+    <!-- NAVIGATION -->
+    <nav id="main-nav"
+        class="sticky top-0 z-50 bg-white/95 dark:bg-surface-dark/95 backdrop-blur-sm border-b border-gray-200 dark:border-gray-700 shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="flex items-center gap-2 group">
+                        <img src="public/images/dr_denture_logo.webp"
+                            alt="Dr Denture Logo"
+                            class="h-10 w-10 sm:h-14 sm:w-14 overflow-hidden rounded-full bg-secondary border-2 border-primary object-cover group-hover:scale-105 transition-transform">
+                        <span
+                            class="font-display font-bold text-lg sm:text-lg md:text-xl text-secondary dark:text-white tracking-tight sm:tracking-normal whitespace-nowrap">Dr Denture</span>
+                    </a>
+                </div>
+                <div class="flex items-center md:hidden">
+                    <button
+                        class="text-gray-500 dark:text-gray-300 hover:text-primary focus:outline-none p-2 rounded-md"
+                        onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" type="button">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+                <div class="hidden md:flex flex-1 justify-center space-x-8 items-center">
+                    <a class="text-gray-700 dark:text-gray-200 hover:text-primary font-medium"
+                        href="index.html">Home</a>
+                    <div class="relative group">
+                        <button
+                            class="text-gray-700 dark:text-gray-200 hover:text-primary font-medium flex items-center gap-1">
+                            About <i class="fa-solid fa-chevron-down text-xs"></i>
+                        </button>
+                        <div
+                            class="absolute left-0 mt-2 w-48 before:absolute before:-top-4 before:left-0 before:w-full before:h-4 bg-white dark:bg-surface-dark rounded-md shadow-lg py-1 border border-gray-200 dark:border-gray-700 hidden group-hover:block">
+                            <a class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                href="team.html">Our Team</a>
+                            <a class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                href="guarantee.html">Guarantee</a>
+                            <a class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                href="about.html">About & FAQ</a>
+                        </div>
+                    </div>
+                    <a class="text-gray-700 dark:text-gray-200 hover:text-primary font-medium"
+                        href="services.html">Services</a>
+                    <a class="text-gray-700 dark:text-gray-200 hover:text-primary font-medium" href="tips.html">Dr Denture's
+                        Denture Tips</a>
+                </div>
+                <div class="hidden md:flex flex-shrink-0">
+                    <a class="bg-primary hover:bg-yellow-500 text-slate-900 px-6 py-2 rounded-full font-bold shadow-glow transition-all"
+                        href="contact.html">Contact Us</a>
+                </div>
+            </div>
+        </div>
+        <div class="md:hidden bg-white dark:bg-surface-dark border-b border-gray-200 dark:border-gray-700 hidden"
+            id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800"
+                    href="index.html">Home</a>
+                <a class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800"
+                    href="about.html">About & FAQ</a>
+                <a class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800"
+                    href="team.html">Our Team</a>
+                <a class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800"
+                    href="guarantee.html">Guarantee</a>
+                <a class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800"
+                    href="services.html">Services</a>
+                <a class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800"
+                    href="tips.html">Tips</a>
+                <a class="block px-3 py-2 rounded-md text-base font-bold text-primary" href="contact.html">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Simple Hero Section for Legal Pages -->
+        <header class="bg-secondary py-24 border-b border-gray-800">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center mt-12">
+                <h1 class="text-4xl md:text-5xl font-display font-extrabold text-slate-900 mb-4">Privacy Policy</h1>
+                <p class="text-slate-700 text-lg">Last Updated: February 2026</p>
+            </div>
+        </header>
+
+        <!-- Privacy Policy Content -->
+        <section class="py-16 bg-background-light dark:bg-background-dark">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div
+                    class="bg-white dark:bg-surface-dark rounded-2xl shadow-soft p-8 md:p-12 border border-gray-200 dark:border-gray-700">
+
+                    <!-- Tailwind Typography prose class automatically formats standard HTML tags -->
+                    <div
+                        class="prose prose-lg dark:prose-invert max-w-none prose-a:text-primary hover:prose-a:text-orange-600 prose-headings:font-display prose-headings:text-secondary dark:prose-headings:text-slate-900">
+
+                        <h2>1. Introduction</h2>
+                        <p>At <strong>Dr Denture</strong>, we respect your privacy and are committed to protecting
+                            the personal information you share with us. This Privacy Policy outlines how we collect,
+                            use, and safeguard your data when you visit our website, contact us for an estimate, or
+                            utilize our denture services.</p>
+
+                        <h2>2. Information We Collect</h2>
+                        <p>We may collect the following types of information when you interact with our business:</p>
+                        <ul>
+                            <li><strong>Personal Information:</strong> Name, phone number, email address, and service
+                                address provided when you request a quote, book an appointment, or contact us.</li>
+                            <li><strong>Payment Information:</strong> Billing address and payment details processed
+                                securely through our third-party payment processors when settling invoices.</li>
+                            <li><strong>Automatically Collected Information:</strong> IP addresses, browser types,
+                                device information, and website usage data collected via cookies and similar tracking
+                                technologies to improve our website experience.</li>
+                        </ul>
+
+                        <h2>3. How We Use Your Information</h2>
+                        <p>We use the information we collect for the following purposes:</p>
+                        <ul>
+                            <li>To provide, schedule, and complete the denture services requested.</li>
+                            <li>To communicate with you regarding appointments, estimates, invoices, and service
+                                updates.</li>
+                            <li>To respond to your inquiries and offer customer support.</li>
+                            <li>To process transactions and send related billing information.</li>
+                            <li>To improve our website functionality and tailor our local marketing efforts.</li>
+                        </ul>
+
+                        <h2>4. Information Sharing and Disclosure</h2>
+                        <p>We do not sell, trade, or rent your personal information to third parties. We may share your
+                            information only in the following circumstances:</p>
+                        <ul>
+                            <li><strong>Service Providers:</strong> We may share data with trusted third-party vendors
+                                who assist us in operating our business (e.g., payment processors, scheduling software,
+                                or email service providers). These parties are obligated to keep your information
+                                confidential.</li>
+                            <li><strong>Legal Requirements:</strong> We may disclose your information if required to do
+                                so by law or in response to valid requests by public authorities (e.g., a court or
+                                government agency).</li>
+                        </ul>
+
+                        <h2>5. Data Security</h2>
+                        <p>We implement appropriate technical and organizational security measures designed to protect
+                            your personal information against accidental, unlawful, or unauthorized destruction, loss,
+                            alteration, access, disclosure, or use. However, please note that no method of transmission
+                            over the internet or electronic storage is 100% secure.</p>
+
+                        <h2>6. Your Rights and Choices</h2>
+                        <p>Depending on your location, you may have the right to request access to the personal
+                            information we hold about you, to request that your personal information be corrected or
+                            updated, or to request deletion of your data. To exercise any of these rights, please
+                            contact us using the details provided below.</p>
+                        <p>You may also opt out of receiving promotional communications from us at any time by following
+                            the unsubscribe instructions included in those emails or by contacting us directly.</p>
+
+                        <h2>7. Changes to This Privacy Policy</h2>
+                        <p>We may update this Privacy Policy from time to time to reflect changes in our practices or
+                            for other operational, legal, or regulatory reasons. The updated version will be indicated
+                            by an updated "Last Updated" date at the top of this page.</p>
+
+                        <h2>8. Contact Us</h2>
+                        <p>If you have any questions, concerns, or requests regarding this Privacy Policy or our data
+                            practices, please contact us at:</p>
+                        <p>
+                            <strong>Dr Denture</strong><br>
+                            Saint John, New Brunswick<br>
+                            Phone: <a href="tel:+15063155061">+1 506-315-5061</a><br>
+                            Email: privacy@nbdenturistjoe.ca<br>
+                            Contact Form: <a href="contact.html">Visit our Contact Page</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- NEW FOOTER SECTION -->
+    <footer class="bg-secondary text-slate-800 relative overflow-hidden pt-20 border-t border-gray-800 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <!-- Top Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
+
+                <!-- Brand, Description & Socials -->
+                <div class="lg:col-span-5 pr-0 lg:pr-12">
+                    <a href="index.html" class="flex items-center gap-3 group mb-6">
+                        <img src="public/images/dr_denture_logo.webp"
+                            alt="Dr Denture Logo"
+                            class="h-12 w-12 overflow-hidden rounded-full bg-secondary border-2 border-primary object-cover group-hover:scale-105 transition-transform">
+                        <span class="font-display font-bold text-2xl text-slate-900 tracking-tight">Dr Denture</span>
+                    </a>
+                    <p class="text-slate-700 mb-8 max-w-md leading-relaxed">
+                        Dr Denture makes denture repairs continuous and scalable for thousands of homeowners and
+                        businesses worldwide.
+                    </p>
+
+                    <!-- Social Icons -->
+                    <div class="flex gap-4 mb-8">
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white text-secondary flex items-center justify-center hover:bg-primary hover:text-slate-900 transition-colors">
+                            <i class="fa-brands fa-twitter text-lg"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white text-secondary flex items-center justify-center hover:bg-primary hover:text-slate-900 transition-colors">
+                            <i class="fa-brands fa-facebook-f text-lg"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white text-secondary flex items-center justify-center hover:bg-primary hover:text-slate-900 transition-colors">
+                            <i class="fa-brands fa-instagram text-lg"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white text-secondary flex items-center justify-center hover:bg-primary hover:text-slate-900 transition-colors">
+                            <i class="fa-brands fa-youtube text-lg"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white text-secondary flex items-center justify-center hover:bg-primary hover:text-slate-900 transition-colors">
+                            <i class="fa-brands fa-linkedin-in text-lg"></i>
+                        </a>
+                    </div>
+
+                    <!-- Reviews -->
+                    <div>
+                        <p class="text-sm text-slate-700 mb-3">See our glowing reviews on</p>
+                        <div class="flex items-center gap-6">
+                            <div class="flex items-center gap-2 text-slate-900 font-bold text-lg">
+                                <i class="fa-brands fa-google text-2xl"></i> Google
+                            </div>
+                            <div class="flex items-center gap-2 text-slate-900 font-bold text-lg">
+                                <i class="fa-brands fa-yelp text-2xl text-red-500"></i> Yelp
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Services Links -->
+                <div class="lg:col-span-2 lg:col-start-7">
+                    <h3 class="text-gray-500 font-semibold mb-6 tracking-wide">Services</h3>
+                    <ul class="space-y-4 text-sm font-medium text-slate-700">
+                        <li><a href="services.html" class="hover:text-primary transition-colors">Complete Dentures</a></li>
+                        <li><a href="services.html" class="hover:text-primary transition-colors">Partial Dentures</a></li>
+                        <li><a href="services.html" class="hover:text-primary transition-colors">Implant-Supported Dentures</a></li>
+                        <li><a href="services.html" class="hover:text-primary transition-colors">Denture Relines</a></li>
+                        <li><a href="services.html" class="hover:text-primary transition-colors">Denture Repairs</a></li>
+                        <li><a href="services.html" class="hover:text-primary transition-colors">Denture Adjustments</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company Links -->
+                <div class="lg:col-span-2">
+                    <h3 class="text-gray-500 font-semibold mb-6 tracking-wide">Company</h3>
+                    <ul class="space-y-4 text-sm font-medium text-slate-700">
+                        <li><a href="about.html" class="hover:text-primary transition-colors">About</a></li>
+                        <li><a href="team.html" class="hover:text-primary transition-colors">Our Team</a></li>
+                        <li><a href="guarantee.html" class="hover:text-primary transition-colors">Guarantee</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Careers</a></li>
+                        <li><a href="contact.html" class="hover:text-primary transition-colors">Contact us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Resources Links -->
+                <div class="lg:col-span-2">
+                    <h3 class="text-gray-500 font-semibold mb-6 tracking-wide">Resources</h3>
+                    <ul class="space-y-4 text-sm font-medium text-slate-700">
+                        <li><a href="tips.html" class="hover:text-primary transition-colors">Denture Tips</a></li>
+                        <li><a href="about.html" class="hover:text-primary transition-colors">FAQ Articles</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Maintenance Guide</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Emergency Info</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Service Areas</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Down Arrow -->
+            <div class="flex justify-center mb-6">
+                <i class="fa-solid fa-chevron-down text-gray-500 text-2xl"></i>
+            </div>
+        </div>
+
+        <!-- Bottom Legal Bar -->
+        <div class="bg-surface-dark/60 rounded-t-[2.5rem] mt-4 relative z-10 backdrop-blur-sm shadow-xl">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-700">
+                    <p>Copyright © 2026 Dr Denture, Inc. All Rights Reserved.</p>
+                    <div class="flex flex-wrap justify-center gap-8 font-medium">
+                        <a href="privacy.html" class="hover:text-slate-900 transition-colors text-slate-900">Privacy Policy</a>
+                        <a href="terms.html" class="hover:text-slate-900 transition-colors">Terms of Service</a>
+                        <a href="#" class="hover:text-slate-900 transition-colors">Report an Issue</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const nav = document.getElementById('main-nav');
+            const footer = document.querySelector('footer');
+            if (!nav || !footer) return;
+
+            // Multiple thresholds for smooth detection
+            const thresholds = Array.from({ length: 21 }, (_, i) => i / 20);
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const isMobile = window.innerWidth < 768;
+                    const thresholdRequired = isMobile ? 0.2 : 0.8;
+
+                    if (entry.intersectionRatio > thresholdRequired) {
+                        nav.style.setProperty('transform', 'translateY(-100%)', 'important');
+                        nav.style.setProperty('opacity', '0', 'important');
+                        nav.style.setProperty('pointer-events', 'none', 'important');
+                        nav.style.setProperty('transition', 'all 0.3s ease-in-out', 'important');
+                    } else {
+                        nav.style.removeProperty('transform');
+                        nav.style.removeProperty('opacity');
+                        nav.style.removeProperty('pointer-events');
+                        nav.style.removeProperty('transition');
+                    }
+                });
+            }, { threshold: thresholds });
+
+            observer.observe(footer);
+        });
+    </script>
+</body>
+
+</html>

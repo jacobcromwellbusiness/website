@@ -1,20 +1,19 @@
 .heroSection {
-  padding-top: 120px; /* Space for header */
   padding-bottom: var(--pad-y);
   position: relative;
 }
 
-.container {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 var(--pad-x);
+.heroContainer {
   display: flex;
   flex-direction: column;
   gap: 64px;
+  padding-left: var(--pad-x);
+  padding-right: var(--pad-x);
 }
 
 .textColumn {
   width: 100%;
+  padding-top: 120px; /* Shifted from section so images bleed to top */
 }
 
 
@@ -22,23 +21,28 @@
 .eyebrow {
   font-size: var(--step--1);
   letter-spacing: 0.05em;
-  color: var(--muted-dark);
+  color: var(--text-muted);
   margin-bottom: 24px;
 }
 
+.staticLine {
+  display: block;
+}
+
 .headline {
-  font-size: var(--step-3);
+  font-size: clamp(2.5rem, 1rem + 4vw, 5.5rem);
   margin-bottom: 32px;
-  max-width: 15ch;
+  max-width: 100%;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
 }
 
 .rotatingContainer {
-  display: inline-flex;
+  display: block;
   position: relative;
   overflow: hidden;
-  vertical-align: bottom;
   color: var(--blue);
-  margin-left: 0.25em;
+  margin-left: 0;
 }
 
 .spacer {
@@ -57,14 +61,20 @@
   opacity: 1;
 }
 
-.inactiveWord {
+.prevWord {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.nextWord {
   transform: translateY(100%);
   opacity: 0;
+  transition: none; /* Snap to bottom instantly so it can roll up */
 }
 
 .support {
   font-size: var(--step-0);
-  color: var(--muted-dark);
+  color: var(--text-muted);
   margin-bottom: 48px;
   max-width: 40ch;
 }
@@ -74,7 +84,7 @@
   align-items: center;
   gap: 12px;
   font-size: var(--step--1);
-  color: var(--muted-dark);
+  color: var(--text-muted);
   animation: bounce 2s infinite;
 }
 
@@ -86,68 +96,65 @@
 
 .collageColumn {
   width: 100%;
-  height: 60vh;
   position: relative;
-  overflow: hidden;
-  border-radius: 20px;
-  background-color: var(--ink-raised);
-  border: 1px solid var(--line-dark);
 }
 
 .collageWrapper {
   display: flex;
-  gap: 16px;
+  gap: 24px;
   width: 100%;
-  height: 140%; /* Taller than container to allow scrolling */
-  position: absolute;
-  top: -20%;
-  left: 0;
-  padding: 16px;
+  padding: 0;
 }
 
 .collageCol {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 24px;
   flex: 1;
   will-change: transform;
 }
 
+.col2 {
+  margin-top: 24px;
+}
+
 .imageWrapper {
-  position: relative;
   width: 100%;
-  padding-bottom: 133%; /* 3:4 aspect ratio approx */
-  border-radius: 12px;
-  overflow: hidden;
-  background-color: var(--navy-deep);
 }
 
 .collageImage {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  display: block;
 }
 
 @media (min-width: 1024px) {
-  .container {
+  .heroSection {
+    /* natural height based on images */
+  }
+
+  .heroContainer {
     flex-direction: row;
-    align-items: flex-start;
+    padding-right: 0;
+    padding-left: var(--pad-x);
+    gap: 4vw; /* Ensure standard gap between text and collage instead of 64px */
   }
 
   .textColumn {
-    width: 42%;
+    width: 35%;
+    padding-right: 0;
   }
 
   .collageColumn {
-    width: 58%;
-    height: 85vh; /* Match sticky height area */
+    width: 65%;
   }
 
   .stickyContent {
     position: sticky;
     top: 18vh;
+  }
+
+  .col2 {
+    margin-top: 15vh;
   }
 }

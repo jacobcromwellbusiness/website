@@ -299,6 +299,14 @@
   --line-dark: rgba(255, 255, 255, 0.14);
   --line-light: rgba(5, 7, 11, 0.14);
 
+  /* Light Theme (Default, per system) */
+  --bg-color: var(--paper);
+  --text-color: var(--ink);
+  --text-muted: var(--muted-light);
+  --border-color: var(--line-light);
+  --bg-raised: var(--white);
+  --accent-color: var(--blue);
+
   --step--1: clamp(0.78rem, 0.74rem + 0.15vw, 0.88rem);
   --step-0: clamp(1rem, 0.94rem + 0.25vw, 1.15rem);
   --step-1: clamp(1.35rem, 1.05rem + 1vw, 2rem);
@@ -308,7 +316,19 @@
 
   --max-width: 1440px;
   --pad-x: clamp(20px, 4vw, 72px);
-  --pad-y: clamp(72px, 11vw, 180px);
+  --pad-y: clamp(40px, 6vw, 100px);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Dark Theme */
+    --bg-color: var(--ink);
+    --text-color: var(--white);
+    --text-muted: var(--muted-dark);
+    --border-color: var(--line-dark);
+    --bg-raised: var(--ink-raised);
+    --accent-color: var(--blue-soft);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -324,8 +344,8 @@
 
 html {
   scroll-behavior: smooth;
-  background-color: var(--ink);
-  color: var(--white);
+  background-color: var(--bg-color);
+  color: var(--text-color);
   font-family: var(--font-body), Arial, sans-serif;
   line-height: 1.5;
 }
@@ -348,7 +368,8 @@ p {
   margin-top: 0;
   margin-bottom: 1.5rem;
   max-width: 60ch;
-  color: var(--muted-dark);
+  color: var(--text-color);
+  opacity: 0.9;
 }
 
 a {

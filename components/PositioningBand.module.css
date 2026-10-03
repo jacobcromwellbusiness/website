@@ -1,5 +1,5 @@
 .section {
-  background-color: var(--navy);
+  background-color: transparent;
   padding: var(--pad-y) 0;
   width: 100%;
 }
@@ -43,7 +43,7 @@
 
 .description {
   margin: 0;
-  color: var(--paper);
+  color: var(--white);
   font-size: var(--step-0);
   max-width: 60ch;
 }

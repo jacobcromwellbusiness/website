@@ -92,14 +92,15 @@
 
 .dialogBox {
   grid-column: 2;
-  background: var(--bg-raised);
+  background: transparent;
   padding: 20px 24px;
   border-radius: 4px 16px 16px 16px; /* Tail on the left */
   font-size: 1rem;
   line-height: 1.5;
   color: var(--text-color);
-  width: 340px;
-  max-width: 100%;
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
   transition: all 0.4s ease;
 }
 
@@ -138,8 +139,9 @@
   flex-direction: column;
   gap: 12px;
   width: 100%;
-  max-width: 480px;
+  max-width: 440px;
   padding: 4px 20px; /* 4px top/bottom padding prevents hover translateY from being clipped by overflow:hidden */
+  box-sizing: border-box;
 }
 
 @keyframes slideUp {
@@ -163,6 +165,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-sizing: border-box;
   opacity: 0;
   transform: translateY(20px);
   animation: btnSlideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -267,6 +270,7 @@
     margin-right: 0;
     width: 96px;
     height: 96px;
+    justify-self: center;
   }
 
   .dialogBox {

@@ -1,5 +1,5 @@
 .container {
-  padding: 10px 0;
+  padding: 10px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -7,6 +7,7 @@
   width: 100%;
   max-width: var(--max-width, 1200px);
   margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .introDialogContainer {
@@ -14,7 +15,6 @@
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
   width: 100%;
-  padding: 0 20px;
   position: relative;
   z-index: 10;
 }
@@ -40,8 +40,9 @@
   font-size: 1.1rem;
   line-height: 1.5;
   color: var(--text-color);
-  width: 360px;
-  max-width: 100%;
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
   border: 1px solid var(--border-color);
 }
 
@@ -55,8 +56,9 @@
   flex-direction: column;
   gap: 12px;
   width: 100%;
-  max-width: 480px;
-  padding: 16px 20px 0 20px;
+  max-width: 400px;
+  padding: 16px 0 0 0;
+  box-sizing: border-box;
 }
 
 .choiceBtn {
@@ -75,6 +77,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-sizing: border-box;
 }
 
 .choiceBtn.clickable::after {

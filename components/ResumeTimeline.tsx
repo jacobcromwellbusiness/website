@@ -17,7 +17,7 @@ const EXPERIENCES = [
     company: "Synoptek",
     role: "Support Engineer",
     date: "June 2019 - December 2022",
-    highlight: "Where I built my technical foundation—learning core troubleshooting, CS fundamentals, and how to deliver enterprise-grade support.",
+    highlight: "Where I built my technical foundation... Like learning core troubleshooting, CS fundamentals, and how to deliver enterprise-grade support.",
   },
   {
     id: 3,

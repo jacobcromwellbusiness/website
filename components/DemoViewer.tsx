@@ -61,6 +61,16 @@ export default function DemoViewer() {
       <div className={styles.header}>
         <div className={styles.eyebrow}>Live Demos</div>
         <h2 className={styles.heading}>Interactive Web Prototypes</h2>
+        
+        <div className={styles.desktopWarning}>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+            <line x1="8" y1="21" x2="16" y2="21"></line>
+            <line x1="12" y1="17" x2="12" y2="21"></line>
+          </svg>
+          Note: This interactive experience works best on a desktop device.
+        </div>
+
         <p className={`${styles.support} ${styles.shineText}`} style={{ fontSize: '1.3rem', fontWeight: 500, marginBottom: '0.75rem' }}>
           Websites can be completely custom designed to your specific business needs. The prototypes are specifically a template design I used with a few variations.
         </p>

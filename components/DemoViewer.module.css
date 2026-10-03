@@ -169,6 +169,7 @@
 
 .viewerStage {
   width: 100%;
+  box-sizing: border-box;
   display: flex;
   justify-content: center;
   background: var(--bg-raised);
@@ -315,8 +316,21 @@
   to { opacity: 1; transform: scale(1); filter: blur(0); }
 }
 
+.desktopWarning {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: var(--bg-raised);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--text-color);
+  font-size: 0.95rem;
+  margin-bottom: 24px;
+}
+
 .shineText {
-  background: linear-gradient(120deg, var(--blue-soft) 30%, #fff 50%, var(--blue-soft) 70%);
+  background: linear-gradient(120deg, var(--text-color) 30%, var(--blue) 50%, var(--text-color) 70%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

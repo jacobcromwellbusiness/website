@@ -259,6 +259,43 @@
   box-shadow: 0 4px 12px rgba(255, 98, 0, 0.3);
 }
 
+@media (max-width: 768px) {
+  .Loader_introDialogContainer__32ghk {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .Loader_profilePic__Rb161 {
+    grid-column: 1;
+    margin-right: 0;
+    width: 96px;
+    height: 96px;
+  }
+
+  .Loader_dialogBox__81Tff {
+    grid-column: 1;
+    width: 100%;
+    border-radius: 16px;
+  }
+
+  .Loader_buttonGroup__YJMso {
+    gap: 8px;
+    padding: 4px 16px;
+  }
+
+  .Loader_choiceBtn__jkFsK {
+    padding: 12px 16px;
+    font-size: 0.9rem;
+    border-radius: 10px;
+  }
+
+  .Loader_buttonExpanded__LPhlS {
+    max-height: 350px;
+  }
+}
+
 /*!**********************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./components/Hero.module.css ***!
   \**********************************************************************************************************************************************************************************************************************************************************************/
@@ -777,6 +814,7 @@
   }
   .ResumeTimeline_content__mcXal {
     width: calc(100% - 60px);
+    margin-left: 60px;
     padding: 30px 20px;
     text-align: center;
   }
@@ -1376,6 +1414,7 @@
 
 .DemoViewer_viewerStage__UYJZi {
   width: 100%;
+  box-sizing: border-box;
   display: flex;
   justify-content: center;
   background: var(--bg-raised);
@@ -1522,8 +1561,21 @@
   to { opacity: 1; transform: scale(1); filter: blur(0); }
 }
 
+.DemoViewer_desktopWarning__dKl0_ {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: var(--bg-raised);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--text-color);
+  font-size: 0.95rem;
+  margin-bottom: 24px;
+}
+
 .DemoViewer_shineText__GZWIF {
-  background: linear-gradient(120deg, var(--blue-soft) 30%, #fff 50%, var(--blue-soft) 70%);
+  background: linear-gradient(120deg, var(--text-color) 30%, var(--blue) 50%, var(--text-color) 70%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -1541,7 +1593,7 @@
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./components/CaseStudies.module.css ***!
   \*****************************************************************************************************************************************************************************************************************************************************************************/
 .CaseStudies_section__J3lO2 {
-  padding: 20px 20px 120px 20px;
+  padding: 20px 20px 40px 20px;
   position: relative;
   overflow: hidden;
   background: var(--bg-default, transparent);
@@ -1639,6 +1691,10 @@
 .CaseStudies_caseStudy__2TDW4:hover {
   border-color: rgba(47, 107, 255, 0.4);
   transform: translateY(-5px);
+}
+
+.CaseStudies_caseStudy__2TDW4:last-child {
+  margin-bottom: 0;
 }
 
 .CaseStudies_studyHeader__ElGmh {

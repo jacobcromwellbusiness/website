@@ -1,5 +1,5 @@
 .section {
-  padding: 20px 20px 120px 20px;
+  padding: 20px 20px 40px 20px;
   position: relative;
   overflow: hidden;
   background: var(--bg-default, transparent);
@@ -97,6 +97,10 @@
 .caseStudy:hover {
   border-color: rgba(47, 107, 255, 0.4);
   transform: translateY(-5px);
+}
+
+.caseStudy:last-child {
+  margin-bottom: 0;
 }
 
 .studyHeader {

@@ -98,13 +98,15 @@
   margin-top: 48px;
   border-radius: 24px;
   overflow: hidden;
-  max-width: 320px;
-  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.1));
+  width: 100%;
+  max-width: 420px;
+  aspect-ratio: 1 / 1;
+  border: 1px solid var(--border-color);
 }
 
 .profileImage {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
   object-fit: cover;
   filter: grayscale(20%) contrast(1.1);

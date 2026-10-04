@@ -52,8 +52,8 @@ export default function Home() {
             ease: "power2.out",
             scrollTrigger: {
               trigger: sec,
-              start: "top 85%",
-              end: "bottom 15%",
+              start: "top 90%",
+              end: "bottom top",
               toggleActions: "play reverse play reverse"
             }
           }

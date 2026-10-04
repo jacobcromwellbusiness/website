@@ -3,6 +3,8 @@ import { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import styles from './Loader.module.css';
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
 export default function Loader() {
   const stageRef = useRef<HTMLDivElement>(null);
@@ -10,7 +12,6 @@ export default function Loader() {
   const [isVisible, setIsVisible] = useState(true);
   const [isUnmounted, setIsUnmounted] = useState(false);
   const [loaderStep, setLoaderStep] = useState(1);
-  const [scriptsLoaded, setScriptsLoaded] = useState(false);
   const router = useRouter();
 
   const handleShowSite = (target = 'top') => {
@@ -32,22 +33,9 @@ export default function Loader() {
   };
 
   useEffect(() => {
-    // We only need to check if THREE and OrbitControls are on window
-    const checkThree = setInterval(() => {
-      const win = window as any;
-      if (win.THREE && win.THREE.OrbitControls) {
-        clearInterval(checkThree);
-        setScriptsLoaded(true);
-      }
-    }, 50);
-    return () => clearInterval(checkThree);
-  }, []);
-
-  useEffect(() => {
-    if (!scriptsLoaded || !stageRef.current) return;
+    if (!stageRef.current) return;
     const stage = stageRef.current;
     const loadingBar = loadingBarRef.current;
-    const THREE = (window as any).THREE;
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     
     const scene = new THREE.Scene();
@@ -62,7 +50,7 @@ export default function Loader() {
     renderer.toneMappingExposure = 1.26;
     stage.appendChild(renderer.domElement);
 
-    const controls = new THREE.OrbitControls(camera, renderer.domElement);
+    const controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
     controls.dampingFactor = 0.055;
     controls.enablePan = false;
@@ -99,11 +87,11 @@ export default function Loader() {
     rim.position.set(-6, 3, -5);
     scene.add(rim);
 
-    const warm = new THREE.PointLight(0xff8a43, 1.6, 14, 2);
+    const warm = new THREE.PointLight(0xff8a43, 20.0, 14, 2);
     warm.position.set(4.5, -1, -3.5);
     scene.add(warm);
 
-    const rim2 = new THREE.DirectionalLight(0xff0000, 2.5);
+    const rim2 = new THREE.DirectionalLight(0x2f6bff, 2.5);
     rim2.position.set(6, -3, -5);
     scene.add(rim2);
 
@@ -374,7 +362,7 @@ export default function Loader() {
         stageRef.current.removeChild(renderer.domElement);
       }
     };
-  }, [scriptsLoaded]);
+  }, []);
 
   if (isUnmounted && typeof window !== 'undefined') {
     // Return null when completely finished to remove from DOM

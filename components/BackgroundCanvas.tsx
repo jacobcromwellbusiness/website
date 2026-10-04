@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
+import * as THREE from 'three';
 
 export default function BackgroundCanvas() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -11,13 +12,6 @@ export default function BackgroundCanvas() {
     let animationId: number;
     let isDestroyed = false;
 
-    const checkThree = setInterval(() => {
-      if ((window as any).THREE) {
-        clearInterval(checkThree);
-        if (!isDestroyed) initScene();
-      }
-    }, 50);
-
     let renderer: any, scene: any, camera: any;
     let networkGroup: any;
     let nodesMaterial: any, linesMaterial: any;
@@ -25,9 +19,10 @@ export default function BackgroundCanvas() {
     let mouseX = 0;
     let mouseY = 0;
 
+    if (!isDestroyed) initScene();
+
     function initScene() {
       const container = containerRef.current!;
-      const THREE = (window as any).THREE;
       
       scene = new THREE.Scene();
       camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
@@ -129,7 +124,6 @@ export default function BackgroundCanvas() {
 
       const handleCubeSolved = () => {
         if (isDimmed) return;
-        const THREE = (window as any).THREE;
         const lightBlueNode = new THREE.Color(0xddebff);
         const lightBlueLine = new THREE.Color(0xaabbff);
         
@@ -178,7 +172,6 @@ export default function BackgroundCanvas() {
 
     return () => {
       isDestroyed = true;
-      clearInterval(checkThree);
       if (animationId) cancelAnimationFrame(animationId);
       if (containerRef.current) {
         if ((containerRef.current as any).cleanup) (containerRef.current as any).cleanup();

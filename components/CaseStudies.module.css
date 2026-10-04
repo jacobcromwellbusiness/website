@@ -21,7 +21,7 @@
   font-size: clamp(3rem, 6vw, 5rem);
   font-family: var(--font-heading, inherit);
   letter-spacing: -0.03em;
-  color: var(--white, #fff);
+  color: var(--text-color);
   margin-bottom: 12px;
   line-height: 1.1;
 }
@@ -78,7 +78,7 @@
   font-family: var(--font-heading, inherit);
   margin-bottom: 24px;
   letter-spacing: -0.02em;
-  color: var(--white, #fff);
+  color: var(--text-color);
 }
 
 .caseStudy {
@@ -113,7 +113,7 @@
   font-size: 2.2rem;
   font-family: var(--font-heading, inherit);
   margin-bottom: 16px;
-  color: var(--white, #fff);
+  color: var(--text-color);
 }
 
 .studyDesc {
@@ -179,7 +179,7 @@
 
 .collapsibleInner h4 {
   font-size: 1.2rem;
-  color: var(--white);
+  color: var(--text-color);
   margin: 16px 0 8px 0;
 }
 
